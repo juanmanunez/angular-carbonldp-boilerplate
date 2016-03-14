@@ -1,5 +1,3 @@
-/// <reference path="./../../typings/typings.d.ts" />
-
 import { bootstrap } from "angular2/platform/browser";
 import { provide } from "angular2/core";
 import { Provider } from "angular2/src/core/di/provider";
@@ -10,30 +8,33 @@ import { HTTP_PROVIDERS } from "angular2/http";
 import Carbon from "carbon/Carbon";
 
 import AppComponent from "./AppComponent";
+import * as AppContext from "carbon/App";
 
-const CARBON_PROVIDER:Provider = provide( Carbon, {
-	useFactory:():Carbon => {
-		let carbon:Carbon = new Carbon();
-		carbon.setSetting( "domain", "dev.carbonldp.com" );
-		return carbon;
-	},
-} );
+let carbon:Carbon = new Carbon();
+carbon.setSetting( "domain", "dev.carbonldp.com" );
+carbon.auth.authenticate( "admin@carbonldp.com", "hello" ).then( () => {
+	return carbon.apps.get( "test-app/" );
+}).then( ( appContext ) => {
 
-const CARBON_APP_PROVIDER:Provider = provide( Carbon, {
-	useFactory:():Carbon => {
-		let carbon:Carbon = new Carbon();
-		carbon.setSetting( "domain", "dev.carbonldp.com" );
-		return carbon;
-	},
-} );
+	const CARBON_PROVIDER:Provider = provide( Carbon, {
+		useValue: carbon,
+	} );
 
-bootstrap( AppComponent, [
-	FORM_PROVIDERS,
-	ROUTER_PROVIDERS,
-	HTTP_PROVIDERS,
+	const CARBON_APP_PROVIDER:Provider = provide( AppContext.Context, {
+		useValue: appContext,
+	} );
 
-	provide( APP_BASE_HREF, { useValue: "/src/" } ),
+	bootstrap( AppComponent, [
+		FORM_PROVIDERS,
+		ROUTER_PROVIDERS,
+		HTTP_PROVIDERS,
 
-	CARBON_PROVIDER,
-	CARBON_APP_PROVIDER,
-] );
+		provide( APP_BASE_HREF, { useValue: "/src/" } ),
+
+		CARBON_PROVIDER,
+		CARBON_APP_PROVIDER,
+	] );
+}).catch( ( error ) => {
+	console.error( "Couldn't initialize carbon's app context" );
+	console.error( error );
+});

@@ -5,6 +5,7 @@ import { ROUTER_DIRECTIVES, Location, RouteConfig, RouterLink, Router } from "an
 import Carbon from "carbon/Carbon";
 
 import template from "./template.html!";
+import * as AppContext from "carbon/App";
 
 @Component( {
 	selector: "app",
@@ -15,8 +16,9 @@ export default class App {
 	private carbon:Carbon;
 	private version:string;
 
-	constructor( carbon:Carbon ) {
+	constructor( carbon:Carbon, appContext:AppContext.Context ) {
 		this.carbon = carbon;
 		this.version = Carbon.version;
+		console.log( appContext );
 	}
 }
