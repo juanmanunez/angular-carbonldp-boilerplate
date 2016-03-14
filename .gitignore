@@ -1,0 +1,14 @@
+# WebStorm files
+.idea/
+
+# NPM Dependencies
+**/node_modules/
+
+# JSPM Dependencies
+**/jspm_packages/
+
+# Typings
+typings/browser/
+typings/browser.d.ts
+typings/main/
+typings/main.d.ts

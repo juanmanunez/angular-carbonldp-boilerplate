@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Title</title>
+</head>
+<body>
+	<app>
+		Loading...
+	</app>
+
+	<script src="assets/node_modules/es6-shim.js"></script>
+	<script src="assets/node_modules/system-polyfills.src.js"></script>
+	<script src="assets/node_modules/angular2-polyfills.js"></script>
+	<script src="assets/node_modules/system.src.js"></script>
+	<script src="assets/node_modules/Rx.js"></script>
+	<script src="system-config.js"></script>
+	<script>
+		System.import( "app/boot" ).catch( function( error ) {
+			console.error( error );
+		});
+	</script>
+</body>
+</html>
