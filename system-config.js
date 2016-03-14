@@ -11,7 +11,14 @@ System.config({
   },
   paths: {
     "npm:*": "jspm_packages/npm/*",
-    "github:*": "jspm_packages/github/*"
+    "github:*": "jspm_packages/github/*",
+    "app/*": "src/app/*"
+  },
+
+  packages: {
+    "app": {
+      "defaultExtension": "ts"
+    },
   },
 
   map: {

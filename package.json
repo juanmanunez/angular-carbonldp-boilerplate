@@ -17,9 +17,9 @@
   },
   "jspm": {
     "directories": {
-      "packages": "src/jspm_packages"
+      "packages": "jspm_packages"
     },
-    "configFile": "src/system-config.js",
+    "configFile": "system-config.js",
     "dependencies": {
       "angular2": "npm:angular2@^2.0.0-beta.9",
       "carbonldp-sdk": "npm:carbonldp-sdk@^0.17.1-ALPHA",

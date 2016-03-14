@@ -19,8 +19,8 @@ gulp.task( "copy-node-dependencies", () => {
 
 gulp.task( "serve", () => {
 	return liveServer.start({
-		root: "src/",
+		root: "",
 		open: true,
-		file: "index.html"
+		file: "src/index.html"
 	});
 });

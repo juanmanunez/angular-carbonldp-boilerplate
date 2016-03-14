@@ -32,7 +32,7 @@ bootstrap( AppComponent, [
 	ROUTER_PROVIDERS,
 	HTTP_PROVIDERS,
 
-	provide( APP_BASE_HREF, { useValue: "/" } ),
+	provide( APP_BASE_HREF, { useValue: "/src/" } ),
 
 	CARBON_PROVIDER,
 	CARBON_APP_PROVIDER,
