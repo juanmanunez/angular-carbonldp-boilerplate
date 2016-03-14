@@ -19,6 +19,14 @@ const CARBON_PROVIDER:Provider = provide( Carbon, {
 	},
 } );
 
+const CARBON_APP_PROVIDER:Provider = provide( Carbon, {
+	useFactory:():Carbon => {
+		let carbon:Carbon = new Carbon();
+		carbon.setSetting( "domain", "dev.carbonldp.com" );
+		return carbon;
+	},
+} );
+
 bootstrap( AppComponent, [
 	FORM_PROVIDERS,
 	ROUTER_PROVIDERS,
@@ -27,4 +35,5 @@ bootstrap( AppComponent, [
 	provide( APP_BASE_HREF, { useValue: "/" } ),
 
 	CARBON_PROVIDER,
+	CARBON_APP_PROVIDER,
 ] );

@@ -1,3 +1,6 @@
+src/app/**/*.js
+src/app/**/*.js.map
+
 # WebStorm files
 .idea/
 

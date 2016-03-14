@@ -3,7 +3,7 @@ System.register(["angular2/platform/browser", "angular2/core", "angular2/common"
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var browser_1, core_1, common_1, router_1, http_1, Carbon_1, AppComponent_1;
-    var CARBON_PROVIDER;
+    var CARBON_PROVIDER, CARBON_APP_PROVIDER;
     return {
         setters:[
             function (browser_1_1) {
@@ -35,12 +35,20 @@ System.register(["angular2/platform/browser", "angular2/core", "angular2/common"
                     return carbon;
                 },
             });
+            CARBON_APP_PROVIDER = core_1.provide(Carbon_1.default, {
+                useFactory: function () {
+                    var carbon = new Carbon_1.default();
+                    carbon.setSetting("domain", "dev.carbonldp.com");
+                    return carbon;
+                },
+            });
             browser_1.bootstrap(AppComponent_1.default, [
                 common_1.FORM_PROVIDERS,
                 router_1.ROUTER_PROVIDERS,
                 http_1.HTTP_PROVIDERS,
                 core_1.provide(router_1.APP_BASE_HREF, { useValue: "/" }),
                 CARBON_PROVIDER,
+                CARBON_APP_PROVIDER,
             ]);
         }
     }
