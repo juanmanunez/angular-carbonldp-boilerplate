@@ -8,7 +8,39 @@
 </head>
 <body>
 	<app>
-		Loading...
+		<!-- All the content that's inside app will be replaced when the Angular app starts -->
+		<style>
+			html, body {
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			app {
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.loading-error {
+				display: none;
+				padding: 5px 15px;
+				background: #fff6f6;
+				color: #9f3a38;
+				border: 1px solid #9f3a38;
+			}
+		</style>
+		<div>Loading...</div>
+		<div class="loading-error">x_x</div>
 	</app>
 
 	<script src="assets/node_modules/es6-shim.js"></script>
@@ -21,7 +53,16 @@
 	<script>
 		System.import( "app/boot" ).catch( function( error ) {
 			console.error( error );
+			displayError();
 		});
+
+		function displayError() {
+			var nodesToHide = document.querySelectorAll( "app *:not( style )" );
+			for( var i = 0; i < nodesToHide.length; i++ ) {
+				nodesToHide[ i ].style.display = "none";
+			}
+			document.querySelector( "app .loading-error" ).style.display = "block";
+		}
 	</script>
 </body>
 </html>

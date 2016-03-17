@@ -1,7 +1,7 @@
 "use strict";
 
 const gulp = require( "gulp" );
-const liveServer = require( "live-server" );
+const webserver = require( "gulp-webserver" );
 
 const config = {
 	nodeDependencies: [
@@ -18,9 +18,11 @@ gulp.task( "copy-node-dependencies", () => {
 });
 
 gulp.task( "serve", () => {
-	return liveServer.start({
-		root: "",
-		open: true,
-		file: "src/index.html"
-	});
+	return gulp.src( "." )
+		.pipe( webserver({
+			livereload: false,
+			directoryListing: false,
+			fallback: "/src/index.html",
+			open: true,
+		}) );
 });
