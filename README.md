@@ -10,7 +10,7 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
 3. run `npm install`
 4. Open `src/app/boot.ejs.ts`, uncomment line 26 and fill it with your carbon app' slug (also delete line 27)
 5. If needed configure the main carbon context in line 23 of `src/app/boot.ejs.ts`
-6. run `npm serve`
+6. run `npm start`
 
 ## Gulp Tasks
 - `build`: Build the bundled version of the web app. Can be run with `--profile prod` to indicate what configuration file to use.

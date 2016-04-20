@@ -20,11 +20,11 @@ import AppComponent from "./AppComponent";
 let carbon:Carbon = new Carbon();
 // Here you can configure your carbon context, extend your ObjectSchemas, etc.
 // Example:
-carbon.setSetting( "domain", "dev.carbonldp.com" );
+// carbon.setSetting( "domain", "dev.carbonldp.com" );
 
 // Uncomment the next statement and replace the string with your app slug. After that, delete the Error below.
-activeContext.initialize( carbon, "example-blog/" );
-// throw new Error( "You haven't declared your app slug, please open boot.ts and change line 26" );
+// activeContext.initialize( carbon, "YOUR-APP-SLUG/" );
+throw new Error( "You haven't declared your app slug, please open boot.ts and change line 26" );
 
 if( "true" === "false" ) enableProdMode();
 
