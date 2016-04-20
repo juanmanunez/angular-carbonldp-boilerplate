@@ -1,6 +1,10 @@
 src/app/**/*.js
 src/app/**/*.js.map
 
+src/app/boot.ts
+
+dist/site/
+
 # WebStorm files
 .idea/
 
@@ -11,7 +15,7 @@ src/app/**/*.js.map
 **/jspm_packages/
 
 # Typings
-typings/browser/
-typings/browser.d.ts
-typings/main/
-typings/main.d.ts
+**/typings/browser/
+**/typings/main/
+**/typings/browser.d.ts
+**/typings/main.d.ts

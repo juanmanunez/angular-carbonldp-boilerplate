@@ -1,0 +1,9 @@
+{
+	"debug": true,
+	"url": {
+		"base": "/src/"
+	},
+	"carbon": {
+		"domain": "dev.carbonldp.com"
+	}
+}

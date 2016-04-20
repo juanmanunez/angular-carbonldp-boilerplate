@@ -1,0 +1,9 @@
+{
+	"debug": false,
+	"url": {
+		"base": "/dist/site/"
+	},
+	"carbon": {
+		"domain": "carbonldp.com"
+	}
+}
