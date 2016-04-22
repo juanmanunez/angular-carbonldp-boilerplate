@@ -13,6 +13,10 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
 5. If needed configure the main carbon context in line 23 of `src/app/boot.ejs.ts`
 6. run `npm start`
 
+## Next Steps
+### Saving the project as a new Git repository
+When you are ready to save your project as a new Git repository just delete the `.git` folder in the root directory of the project, and execute `git init` like with any new git project.
+
 ## Gulp Tasks
 - `build`: Build the bundled version of the web app. Can be run with `--profile prod` to indicate what configuration file to use.
 - `serve`: Serve the development version of the web app.
