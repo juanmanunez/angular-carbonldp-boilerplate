@@ -326,6 +326,11 @@ SystemJS.config({
         "util-deprecate": "npm:util-deprecate@1.0.2"
       }
     },
+    "npm:reflect-metadata@0.1.3": {
+      "map": {
+        "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha"
+      }
+    },
     "npm:sha.js@2.4.5": {
       "map": {
         "inherits": "npm:inherits@2.0.1"
