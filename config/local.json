@@ -1,5 +1,7 @@
 {
-	"debug": true,
+	"angular": {
+		"debug": true
+	},
 	"url": {
 		"base": "/src/"
 	},

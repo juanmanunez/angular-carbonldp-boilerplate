@@ -76,7 +76,7 @@ SystemJS.config({
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha",
-    "zone.js": "npm:zone.js@0.6.4"
+    "zone.js": "npm:zone.js@0.6.12"
   },
   packages: {
     "github:frankwallis/plugin-typescript@4.0.2": {

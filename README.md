@@ -8,7 +8,8 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
     - jspm: `npm install -g jspm@beta`
 2. cd into the project's root directory
 3. run `npm install`
-4. Open `src/app/boot.ejs.ts`, uncomment line 26 and fill it with your carbon app' slug (also delete line 27)
+4. Open `src/app/boot.ejs.ts`, uncomment line 26 and fill it with your carbon app' slug
+5. Delete line 27 from `src/app/boot.ejs.ts`
 5. If needed configure the main carbon context in line 23 of `src/app/boot.ejs.ts`
 6. run `npm start`
 

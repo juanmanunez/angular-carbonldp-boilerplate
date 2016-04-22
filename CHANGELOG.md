@@ -1,3 +1,8 @@
+## 1.0.2 (2016-04-22)
+- Update `zone.js` to 0.6.12
+- Add missing peer dependencies to remove warning
+- Stop ejs from logging its output
+
 ## 1.0.1 (2016-04-20) :maple_leaf:
 - Update `angular2` to 2.0.0-beta.15
 - Update `carbonldp` to 0.28.0
