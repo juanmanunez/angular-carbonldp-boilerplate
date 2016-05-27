@@ -1,11 +1,23 @@
 SystemJS.config({
+  devConfig: {
+    "map": {
+      "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.2"
+    },
+    "packages": {
+      "github:frankwallis/plugin-typescript@4.0.2": {
+        "map": {
+          "typescript": "npm:typescript@1.8.10"
+        }
+      }
+    }
+  },
   transpiler: "plugin-typescript",
   typescriptOptions: {
     "tsconfig": true
   },
   paths: {
-    "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*",
+    "github:": "jspm_packages/github/",
+    "npm:": "jspm_packages/npm/",
     "app/": "src/app/"
   },
   packages: {
@@ -24,7 +36,8 @@ SystemJS.config({
     }
   },
   map: {
-    "html": "github:systemjs/plugin-text@0.0.7"
+    "html": "github:systemjs/plugin-text@0.0.7",
+    "": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1"
   }
 });
 
@@ -35,42 +48,47 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
+    "@angular/http": "npm:@angular/http@2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
+    "@angular/common": "npm:@angular/common@2.0.0-rc.1",
+    "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
+    "@angular/core": "npm:@angular/core@2.0.0-rc.1",
+    "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
+    "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
     "text": "github:systemjs/plugin-text@0.0.7",
-    "angular2-carbonldp": "npm:angular2-carbonldp@0.1.8",
-    "angular2": "npm:angular2@2.0.0-beta.15",
+    "angular2-carbonldp": "npm:angular2-carbonldp@0.1.10",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "carbonldp": "npm:carbonldp@0.28.0",
+    "carbonldp": "npm:carbonldp@0.34.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
-    "css": "github:systemjs/plugin-css@0.1.20",
     "dgram": "github:jspm/nodelibs-dgram@0.2.0-alpha",
     "dns": "github:jspm/nodelibs-dns@0.2.0-alpha",
     "ecc-jsbn": "npm:ecc-jsbn@0.1.1",
     "es6-promise": "npm:es6-promise@3.1.2",
-    "es6-shim": "npm:es6-shim@0.33.13",
+    "es6-shim": "npm:es6-shim@0.35.0",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
     "https": "github:jspm/nodelibs-https@0.2.0-alpha",
     "jodid25519": "npm:jodid25519@1.0.2",
     "jsbn": "npm:jsbn@0.1.0",
-    "jsonld": "npm:jsonld@0.4.6",
+    "jsonld": "npm:jsonld@0.4.11",
     "net": "github:jspm/nodelibs-net@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
-    "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.2",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "punycode": "github:jspm/nodelibs-punycode@0.2.0-alpha",
     "querystring": "github:jspm/nodelibs-querystring@0.2.0-alpha",
-    "reflect-metadata": "npm:reflect-metadata@0.1.3",
-    "rxjs": "npm:rxjs@5.0.0-beta.2",
+    "reflect-metadata": "npm:reflect-metadata@0.1.2",
+    "rxjs": "npm:rxjs@5.0.0-beta.6",
     "stream": "github:jspm/nodelibs-stream@0.2.0-alpha",
     "string_decoder": "github:jspm/nodelibs-string_decoder@0.2.0-alpha",
     "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
-    "tweetnacl": "npm:tweetnacl@0.14.1",
+    "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
+    "tweetnacl": "npm:tweetnacl@0.13.3",
     "typescript": "npm:typescript@1.8.10",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
@@ -79,11 +97,6 @@ SystemJS.config({
     "zone.js": "npm:zone.js@0.6.12"
   },
   packages: {
-    "github:frankwallis/plugin-typescript@4.0.2": {
-      "map": {
-        "typescript": "npm:typescript@1.8.10"
-      }
-    },
     "github:jspm/nodelibs-buffer@0.2.0-alpha": {
       "map": {
         "buffer-browserify": "npm:buffer@4.6.0"
@@ -96,7 +109,7 @@ SystemJS.config({
     },
     "github:jspm/nodelibs-http@0.2.0-alpha": {
       "map": {
-        "http-browserify": "npm:stream-http@2.2.0"
+        "http-browserify": "npm:stream-http@2.3.0"
       }
     },
     "github:jspm/nodelibs-os@0.2.0-alpha": {
@@ -106,7 +119,7 @@ SystemJS.config({
     },
     "github:jspm/nodelibs-punycode@0.2.0-alpha": {
       "map": {
-        "punycode-browserify": "npm:punycode@1.3.2"
+        "punycode-browserify": "npm:punycode@1.4.1"
       }
     },
     "github:jspm/nodelibs-stream@0.2.0-alpha": {
@@ -129,14 +142,12 @@ SystemJS.config({
         "zlib-browserify": "npm:browserify-zlib@0.1.4"
       }
     },
-    "npm:angular2-carbonldp@0.1.8": {
+    "npm:angular2-carbonldp@0.1.10": {
       "map": {
-        "angular2": "npm:angular2@2.0.0-beta.15",
-        "carbonldp": "npm:carbonldp@0.28.0",
         "js-cookie": "npm:js-cookie@2.1.1"
       }
     },
-    "npm:asn1.js@4.5.2": {
+    "npm:asn1.js@4.6.0": {
       "map": {
         "bn.js": "npm:bn.js@4.11.3",
         "inherits": "npm:inherits@2.0.1",
@@ -178,7 +189,7 @@ SystemJS.config({
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
         "create-hash": "npm:create-hash@1.1.2",
         "create-hmac": "npm:create-hmac@1.1.4",
-        "elliptic": "npm:elliptic@6.2.3",
+        "elliptic": "npm:elliptic@6.2.7",
         "inherits": "npm:inherits@2.0.1",
         "parse-asn1": "npm:parse-asn1@5.0.0"
       }
@@ -186,7 +197,7 @@ SystemJS.config({
     "npm:browserify-zlib@0.1.4": {
       "map": {
         "pako": "npm:pako@0.2.8",
-        "readable-stream": "npm:readable-stream@2.0.6"
+        "readable-stream": "npm:readable-stream@2.1.4"
       }
     },
     "npm:buffer@4.6.0": {
@@ -194,6 +205,12 @@ SystemJS.config({
         "base64-js": "npm:base64-js@1.1.2",
         "ieee754": "npm:ieee754@1.1.6",
         "isarray": "npm:isarray@1.0.0"
+      }
+    },
+    "npm:carbonldp@0.34.0": {
+      "map": {
+        "file-type": "npm:file-type@3.8.0",
+        "jsonld": "npm:jsonld@0.4.11"
       }
     },
     "npm:cipher-base@1.0.2": {
@@ -204,7 +221,7 @@ SystemJS.config({
     "npm:create-ecdh@4.0.0": {
       "map": {
         "bn.js": "npm:bn.js@4.11.3",
-        "elliptic": "npm:elliptic@6.2.3"
+        "elliptic": "npm:elliptic@6.2.7"
       }
     },
     "npm:create-hash@1.1.2": {
@@ -253,7 +270,7 @@ SystemJS.config({
         "jsbn": "npm:jsbn@0.1.0"
       }
     },
-    "npm:elliptic@6.2.3": {
+    "npm:elliptic@6.2.7": {
       "map": {
         "bn.js": "npm:bn.js@4.11.3",
         "brorand": "npm:brorand@1.0.5",
@@ -276,15 +293,16 @@ SystemJS.config({
         "jsbn": "npm:jsbn@0.1.0"
       }
     },
-    "npm:jsonld@0.4.6": {
+    "npm:jsonld@0.4.11": {
       "map": {
-        "es6-promise": "npm:es6-promise@2.0.1",
-        "node-pkginfo": "npm:pkginfo@0.3.1",
+        "es6-promise": "npm:es6-promise@2.3.0",
+        "node-pkginfo": "npm:pkginfo@0.4.0",
         "node-request": "@empty",
         "node-xmldom": "npm:xmldom@0.1.19",
         "pkginfo": "@empty",
         "request": "@empty",
-        "xmldom": "npm:xmldom@0.1.19"
+        "xmldom": "npm:xmldom@0.1.19",
+        "jsonld-request": "@empty"
       }
     },
     "npm:miller-rabin@4.0.0": {
@@ -295,7 +313,7 @@ SystemJS.config({
     },
     "npm:parse-asn1@5.0.0": {
       "map": {
-        "asn1.js": "npm:asn1.js@4.5.2",
+        "asn1.js": "npm:asn1.js@4.6.0",
         "browserify-aes": "npm:browserify-aes@1.0.6",
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
@@ -316,19 +334,15 @@ SystemJS.config({
         "randombytes": "npm:randombytes@2.0.3"
       }
     },
-    "npm:readable-stream@2.0.6": {
+    "npm:readable-stream@2.1.4": {
       "map": {
+        "buffer-shims": "npm:buffer-shims@1.0.0",
         "core-util-is": "npm:core-util-is@1.0.2",
         "inherits": "npm:inherits@2.0.1",
         "isarray": "npm:isarray@1.0.0",
-        "process-nextick-args": "npm:process-nextick-args@1.0.6",
+        "process-nextick-args": "npm:process-nextick-args@1.0.7",
         "string_decoder": "npm:string_decoder@0.10.31",
         "util-deprecate": "npm:util-deprecate@1.0.2"
-      }
-    },
-    "npm:reflect-metadata@0.1.3": {
-      "map": {
-        "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha"
       }
     },
     "npm:sha.js@2.4.5": {
@@ -339,13 +353,14 @@ SystemJS.config({
     "npm:stream-browserify@2.0.1": {
       "map": {
         "inherits": "npm:inherits@2.0.1",
-        "readable-stream": "npm:readable-stream@2.0.6"
+        "readable-stream": "npm:readable-stream@2.1.4"
       }
     },
-    "npm:stream-http@2.2.0": {
+    "npm:stream-http@2.3.0": {
       "map": {
         "builtin-status-codes": "npm:builtin-status-codes@2.0.0",
         "inherits": "npm:inherits@2.0.1",
+        "readable-stream": "npm:readable-stream@2.1.4",
         "to-arraybuffer": "npm:to-arraybuffer@1.0.1",
         "xtend": "npm:xtend@4.0.1"
       }

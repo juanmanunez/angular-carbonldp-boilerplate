@@ -15,7 +15,5 @@ dist/site/
 **/jspm_packages/
 
 # Typings
-**/typings/browser/
-**/typings/main/
-**/typings/browser.d.ts
-**/typings/main.d.ts
+**/typings/globals/
+**/typings/index.d.ts

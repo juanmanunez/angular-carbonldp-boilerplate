@@ -4,11 +4,11 @@
 import "zone.js";
 import "reflect-metadata";
 
-import { bootstrap } from "angular2/platform/browser";
-import { provide, enableProdMode, ComponentRef } from "angular2/core";
-import { FORM_PROVIDERS } from "angular2/common";
-import { ROUTER_PROVIDERS, APP_BASE_HREF } from "angular2/router";
-import { HTTP_PROVIDERS } from "angular2/http";
+import { bootstrap } from "@angular/platform-browser-dynamic";
+import { provide, enableProdMode, ComponentRef } from "@angular/core";
+import { FORM_PROVIDERS, APP_BASE_HREF } from "@angular/common";
+import { ROUTER_PROVIDERS } from "@angular/router-deprecated";
+import { HTTP_PROVIDERS } from "@angular/http";
 
 import { appInjector, activeContext, CARBON_PROVIDERS } from "angular2-carbonldp/boot";
 import { CARBON_SERVICES_PROVIDERS } from "angular2-carbonldp/services";
@@ -20,13 +20,13 @@ import AppComponent from "./AppComponent";
 let carbon:Carbon = new Carbon();
 // Here you can configure your carbon context, extend your ObjectSchemas, etc.
 // Example:
-// carbon.setSetting( "domain", "<%- carbon.domain %>" );
+carbon.setSetting( "domain", "<%- carbon.domain %>" );
 
 // Uncomment the next statement and replace the string with your app slug. After that, delete the Error below.
-// activeContext.initialize( carbon, "YOUR-APP-SLUG/" );
-throw new Error( "You haven't declared your app slug, please open boot.ts and change line 26" );
+activeContext.initialize( carbon, "example-blog/" );
+//throw new Error( "You haven't declared your app slug, please open boot.ts and change line 26" );
 
-if( "<%- debug %>" === "false" ) enableProdMode();
+if( "<%- angular.debug %>" === "false" ) enableProdMode();
 
 bootstrap( AppComponent, [
 	FORM_PROVIDERS,
