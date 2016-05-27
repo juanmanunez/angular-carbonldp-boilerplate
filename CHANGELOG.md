@@ -1,3 +1,8 @@
+## 1.0.3 (2016-05-27)
+- Update typings to `1.0.4`
+- Update `angular2-carbonldp`
+- Restructure to use `"moduleResolution": "node"`
+
 ## 1.0.2 (2016-04-22)
 - Update `zone.js` to 0.6.12
 - Add missing peer dependencies to remove warning

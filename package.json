@@ -1,6 +1,6 @@
 {
   "name": "angular-jspm-carbon-boilerplate",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "A boilerplate to get you started creating web applications using Angular2 + JSPM + CarbonLDP",
   "main": "index.js",
   "scripts": {
