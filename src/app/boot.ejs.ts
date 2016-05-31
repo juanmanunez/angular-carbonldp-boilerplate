@@ -1,9 +1,6 @@
 // There are files that reference this two dependencies and therefore they get included in the bundled file
 // This causes a conflict with angular2-polyfills.js, as that file also declares them
 // To avoid this, angular2-polyfills.js is no longer included in the index.html and zone and reflect are declared here instead
-import "zone.js";
-import "reflect-metadata";
-
 import { bootstrap } from "@angular/platform-browser-dynamic";
 import { provide, enableProdMode, ComponentRef } from "@angular/core";
 import { FORM_PROVIDERS, APP_BASE_HREF } from "@angular/common";
@@ -24,7 +21,7 @@ carbon.setSetting( "domain", "<%- carbon.domain %>" );
 
 // Uncomment the next statement and replace the string with your app slug. After that, delete the Error below.
 activeContext.initialize( carbon, "example-blog/" );
-//throw new Error( "You haven't declared your app slug, please open boot.ts and change line 26" );
+throw new Error( "You haven't declared your app slug, please open boot.ts and change line 23" );
 
 if( "<%- angular.debug %>" === "false" ) enableProdMode();
 
@@ -37,7 +34,7 @@ bootstrap( AppComponent, [
 
 	CARBON_PROVIDERS,
 	CARBON_SERVICES_PROVIDERS,
-] ).then( ( appRef:ComponentRef ) => {
+] ).then( ( appRef:ComponentRef<AppComponent> ) => {
 	appInjector( appRef.injector );
 }).catch( ( error ) => {
 	console.error( "Couldn't bootstrap the application" );
