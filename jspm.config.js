@@ -55,20 +55,21 @@ SystemJS.config({
     "@angular/core": "npm:@angular/core@2.0.0-rc.1",
     "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
     "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
+    "bluebird": "npm:bluebird@3.4.1",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
     "text": "github:systemjs/plugin-text@0.0.7",
-    "angular2-carbonldp": "npm:angular2-carbonldp@0.1.10",
+    "angular2-carbonldp": "npm:angular2-carbonldp@0.2.2-rc.2",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "carbonldp": "npm:carbonldp@0.34.0",
+    "carbonldp": "npm:carbonldp@0.36.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
     "dgram": "github:jspm/nodelibs-dgram@0.2.0-alpha",
     "dns": "github:jspm/nodelibs-dns@0.2.0-alpha",
     "ecc-jsbn": "npm:ecc-jsbn@0.1.1",
-    "es6-promise": "npm:es6-promise@3.1.2",
+    "es6-promise": "npm:es6-promise@2.0.1",
     "es6-shim": "npm:es6-shim@0.35.0",
     "events": "github:jspm/nodelibs-events@0.2.0-alpha",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
@@ -93,13 +94,14 @@ SystemJS.config({
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
+    "youtube-player": "npm:youtube-player@3.0.4",
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha",
     "zone.js": "npm:zone.js@0.6.12"
   },
   packages: {
     "github:jspm/nodelibs-buffer@0.2.0-alpha": {
       "map": {
-        "buffer-browserify": "npm:buffer@4.6.0"
+        "buffer-browserify": "npm:buffer@4.9.0"
       }
     },
     "github:jspm/nodelibs-crypto@0.2.0-alpha": {
@@ -109,7 +111,7 @@ SystemJS.config({
     },
     "github:jspm/nodelibs-http@0.2.0-alpha": {
       "map": {
-        "http-browserify": "npm:stream-http@2.3.0"
+        "http-browserify": "npm:stream-http@2.3.1"
       }
     },
     "github:jspm/nodelibs-os@0.2.0-alpha": {
@@ -142,18 +144,6 @@ SystemJS.config({
         "zlib-browserify": "npm:browserify-zlib@0.1.4"
       }
     },
-    "npm:angular2-carbonldp@0.1.10": {
-      "map": {
-        "js-cookie": "npm:js-cookie@2.1.1"
-      }
-    },
-    "npm:asn1.js@4.6.0": {
-      "map": {
-        "bn.js": "npm:bn.js@4.11.3",
-        "inherits": "npm:inherits@2.0.1",
-        "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
-      }
-    },
     "npm:browserify-aes@1.0.6": {
       "map": {
         "buffer-xor": "npm:buffer-xor@1.0.3",
@@ -179,38 +169,25 @@ SystemJS.config({
     },
     "npm:browserify-rsa@4.0.1": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
+        "bn.js": "npm:bn.js@4.11.6",
         "randombytes": "npm:randombytes@2.0.3"
       }
     },
     "npm:browserify-sign@4.0.0": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
+        "bn.js": "npm:bn.js@4.11.6",
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
         "create-hash": "npm:create-hash@1.1.2",
         "create-hmac": "npm:create-hmac@1.1.4",
-        "elliptic": "npm:elliptic@6.2.7",
+        "elliptic": "npm:elliptic@6.3.1",
         "inherits": "npm:inherits@2.0.1",
         "parse-asn1": "npm:parse-asn1@5.0.0"
       }
     },
     "npm:browserify-zlib@0.1.4": {
       "map": {
-        "pako": "npm:pako@0.2.8",
+        "pako": "npm:pako@0.2.9",
         "readable-stream": "npm:readable-stream@2.1.4"
-      }
-    },
-    "npm:buffer@4.6.0": {
-      "map": {
-        "base64-js": "npm:base64-js@1.1.2",
-        "ieee754": "npm:ieee754@1.1.6",
-        "isarray": "npm:isarray@1.0.0"
-      }
-    },
-    "npm:carbonldp@0.34.0": {
-      "map": {
-        "file-type": "npm:file-type@3.8.0",
-        "jsonld": "npm:jsonld@0.4.11"
       }
     },
     "npm:cipher-base@1.0.2": {
@@ -220,8 +197,8 @@ SystemJS.config({
     },
     "npm:create-ecdh@4.0.0": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
-        "elliptic": "npm:elliptic@6.2.7"
+        "bn.js": "npm:bn.js@4.11.6",
+        "elliptic": "npm:elliptic@6.3.1"
       }
     },
     "npm:create-hash@1.1.2": {
@@ -260,7 +237,7 @@ SystemJS.config({
     },
     "npm:diffie-hellman@5.0.2": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
+        "bn.js": "npm:bn.js@4.11.6",
         "miller-rabin": "npm:miller-rabin@4.0.0",
         "randombytes": "npm:randombytes@2.0.3"
       }
@@ -268,14 +245,6 @@ SystemJS.config({
     "npm:ecc-jsbn@0.1.1": {
       "map": {
         "jsbn": "npm:jsbn@0.1.0"
-      }
-    },
-    "npm:elliptic@6.2.7": {
-      "map": {
-        "bn.js": "npm:bn.js@4.11.3",
-        "brorand": "npm:brorand@1.0.5",
-        "hash.js": "npm:hash.js@1.0.3",
-        "inherits": "npm:inherits@2.0.1"
       }
     },
     "npm:evp_bytestokey@1.0.0": {
@@ -295,25 +264,24 @@ SystemJS.config({
     },
     "npm:jsonld@0.4.11": {
       "map": {
-        "es6-promise": "npm:es6-promise@2.3.0",
-        "node-pkginfo": "npm:pkginfo@0.4.0",
+        "es6-promise": "npm:es6-promise@2.0.1",
+        "node-pkginfo": "npm:pkginfo@0.3.1",
         "node-request": "@empty",
         "node-xmldom": "npm:xmldom@0.1.19",
         "pkginfo": "@empty",
         "request": "@empty",
-        "xmldom": "npm:xmldom@0.1.19",
-        "jsonld-request": "@empty"
+        "xmldom": "npm:xmldom@0.1.19"
       }
     },
     "npm:miller-rabin@4.0.0": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
+        "bn.js": "npm:bn.js@4.11.6",
         "brorand": "npm:brorand@1.0.5"
       }
     },
     "npm:parse-asn1@5.0.0": {
       "map": {
-        "asn1.js": "npm:asn1.js@4.6.0",
+        "asn1.js": "npm:asn1.js@4.8.0",
         "browserify-aes": "npm:browserify-aes@1.0.6",
         "create-hash": "npm:create-hash@1.1.2",
         "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
@@ -327,7 +295,7 @@ SystemJS.config({
     },
     "npm:public-encrypt@4.0.0": {
       "map": {
-        "bn.js": "npm:bn.js@4.11.3",
+        "bn.js": "npm:bn.js@4.11.6",
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
         "create-hash": "npm:create-hash@1.1.2",
         "parse-asn1": "npm:parse-asn1@5.0.0",
@@ -356,19 +324,60 @@ SystemJS.config({
         "readable-stream": "npm:readable-stream@2.1.4"
       }
     },
-    "npm:stream-http@2.3.0": {
-      "map": {
-        "builtin-status-codes": "npm:builtin-status-codes@2.0.0",
-        "inherits": "npm:inherits@2.0.1",
-        "readable-stream": "npm:readable-stream@2.1.4",
-        "to-arraybuffer": "npm:to-arraybuffer@1.0.1",
-        "xtend": "npm:xtend@4.0.1"
-      }
-    },
     "npm:url@0.11.0": {
       "map": {
         "punycode": "npm:punycode@1.3.2",
         "querystring": "npm:querystring@0.2.0"
+      }
+    },
+    "npm:carbonldp@0.36.0": {
+      "map": {
+        "jsonld": "npm:jsonld@0.4.11",
+        "file-type": "npm:file-type@3.8.0"
+      }
+    },
+    "npm:buffer@4.9.0": {
+      "map": {
+        "isarray": "npm:isarray@1.0.0",
+        "base64-js": "npm:base64-js@1.1.2",
+        "ieee754": "npm:ieee754@1.1.6"
+      }
+    },
+    "npm:stream-http@2.3.1": {
+      "map": {
+        "readable-stream": "npm:readable-stream@2.1.4",
+        "xtend": "npm:xtend@4.0.1",
+        "inherits": "npm:inherits@2.0.1",
+        "to-arraybuffer": "npm:to-arraybuffer@1.0.1",
+        "builtin-status-codes": "npm:builtin-status-codes@2.0.0"
+      }
+    },
+    "npm:elliptic@6.3.1": {
+      "map": {
+        "bn.js": "npm:bn.js@4.11.6",
+        "inherits": "npm:inherits@2.0.1",
+        "brorand": "npm:brorand@1.0.5",
+        "hash.js": "npm:hash.js@1.0.3"
+      }
+    },
+    "npm:asn1.js@4.8.0": {
+      "map": {
+        "inherits": "npm:inherits@2.0.1",
+        "bn.js": "npm:bn.js@4.11.6",
+        "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
+      }
+    },
+    "npm:angular2-carbonldp@0.2.2-rc.2": {
+      "map": {
+        "js-cookie": "npm:js-cookie@2.1.2"
+      }
+    },
+    "npm:youtube-player@3.0.4": {
+      "map": {
+        "bluebird": "npm:bluebird@3.4.1",
+        "lodash": "npm:lodash@4.14.2",
+        "load-script": "npm:load-script@1.0.0",
+        "sister": "npm:sister@3.0.0"
       }
     }
   }

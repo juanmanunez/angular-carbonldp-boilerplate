@@ -11,15 +11,15 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "@angular/common": "^2.0.0-rc.1",
-    "@angular/compiler": "^2.0.0-rc.1",
-    "@angular/core": "^2.0.0-rc.1",
-    "@angular/http": "^2.0.0-rc.1",
-    "@angular/platform-browser": "^2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "^2.0.0-rc.1",
-    "@angular/router-deprecated": "^2.0.0-rc.1",
-    "angular2-carbonldp": "^0.1.10",
-    "carbonldp": "^0.34.0",
+    "@angular/common": "2.0.0-rc.1",
+    "@angular/compiler": "2.0.0-rc.1",
+    "@angular/core": "2.0.0-rc.1",
+    "@angular/http": "2.0.0-rc.1",
+    "@angular/platform-browser": "2.0.0-rc.1",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
+    "@angular/router-deprecated": "2.0.0-rc.1",
+    "angular2-carbonldp": "^0.2.0",
+    "carbonldp": "^0.36.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-ejs": "^2.1.1",
@@ -29,7 +29,7 @@
     "live-server": "^1.0.0",
     "run-sequence": "^1.2.0",
     "rxjs": "^5.0.0-beta.6",
-    "typescript": "^1.8.10",
+    "typescript": "^2.0.0",
     "typings": "^0.8.1"
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "es6-shim": "^0.35.1",
     "jspm": "^0.17.0-beta.11",
     "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.2",
+    "rxjs": "^5.0.0-beta.6",
     "zone.js": "^0.6.2"
   },
   "jspm": {
@@ -46,32 +46,34 @@
       "lib": "src/app"
     },
     "dependencies": {
-      "angular2-carbonldp": "npm:angular2-carbonldp@^0.1.10",
+      "angular2-carbonldp": "npm:angular2-carbonldp@0.2.2-rc.2",
+      "bluebird": "npm:bluebird@3.4.1",
       "jsonld": "npm:jsonld@^0.4.11",
       "text": "github:systemjs/plugin-text@^0.0.7",
-      "typescript": "npm:typescript@^1.8.10"
+      "typescript": "npm:typescript@^1.8.10",
+      "youtube-player": "npm:youtube-player@^3.0.4"
     },
     "devDependencies": {
       "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.2"
     },
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@^2.0.0-rc.1",
+      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
       "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
       "@angular/core": "npm:@angular/core@2.0.0-rc.1",
       "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
       "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
       "@angular/http": "npm:@angular/http@2.0.0-rc.1",
-      "@angular/router-deprecated": "npm:@angular/router-deprecated@^2.0.0-rc.1",
+      "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
-      "carbonldp": "npm:carbonldp@^0.34.0",
+      "carbonldp": "npm:carbonldp@^0.36.0",
       "child_process": "github:jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "github:jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "github:jspm/nodelibs-crypto@^0.2.0-alpha",
       "dgram": "github:jspm/nodelibs-dgram@^0.2.0-alpha",
       "dns": "github:jspm/nodelibs-dns@^0.2.0-alpha",
       "ecc-jsbn": "npm:ecc-jsbn@0",
-      "es6-promise": "npm:es6-promise@^3.0.2",
+      "es6-promise": "npm:es6-promise@2.0.1",
       "es6-shim": "npm:es6-shim@^0.35.0",
       "events": "github:jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "github:jspm/nodelibs-fs@^0.2.0-alpha",
@@ -97,7 +99,7 @@
       "util": "github:jspm/nodelibs-util@^0.2.0-alpha",
       "vm": "github:jspm/nodelibs-vm@^0.2.0-alpha",
       "zlib": "github:jspm/nodelibs-zlib@^0.2.0-alpha",
-      "zone.js": "npm:zone.js@^0.6.12"
+      "zone.js": "npm:zone.js@^0.6.6"
     },
     "overrides": {
       "npm:@angular/common@2.0.0-rc.1": {
@@ -160,6 +162,21 @@
           }
         }
       },
+      "npm:bluebird@3.4.1": {
+        "map": {
+          "./js/release/bluebird.js": {
+            "browser": "./js/browser/bluebird.js"
+          }
+        },
+        "meta": {
+          "js/browser/bluebird.js": {
+            "format": "global"
+          },
+          "js/browser/bluebird.min.js": {
+            "format": "global"
+          }
+        }
+      },
       "npm:browserify-zlib@0.1.4": {
         "dependencies": {
           "readable-stream": "^2.0.2",
@@ -173,6 +190,12 @@
         "ignore": [
           "test.js"
         ]
+      },
+      "npm:lodash@4.14.2": {
+        "map": {
+          "buffer": "@empty",
+          "process": "@empty"
+        }
       },
       "npm:reflect-metadata@0.1.2": {
         "map": {

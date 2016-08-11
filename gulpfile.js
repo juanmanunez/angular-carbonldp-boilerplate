@@ -60,6 +60,7 @@ gulp.task( "serve", [ "copy:node-dependencies", "compile:boot" ], () => {
 			directoryListing: false,
 			fallback: "/src/index.html",
 			open: "src/index.html",
+			port: 8045
 		} ) );
 } );
 
@@ -70,6 +71,7 @@ gulp.task( "serve:dist", [ "build" ], () => {
 			directoryListing: false,
 			fallback: "/dist/site/index.html",
 			open: "dist/site/index.html",
+			port: 8045
 		} ) );
 } );
 

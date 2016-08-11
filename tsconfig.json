@@ -5,7 +5,11 @@
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
 		"noImplicitAny": false,
-		"moduleResolution": "node"
+		"moduleResolution": "node",
+		"baseUrl": ".",
+		"paths": {
+			"app/*": [ "src/app/*" ]
+		}
 	},
 	"exclude": [
 		"node_modules",

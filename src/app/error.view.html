@@ -1,0 +1,23 @@
+<background-video [videoID]="'VJXiwmnAopw'">
+	<div class="bp-error__content-wrapper">
+		<div class="bp-error__content">
+			<h1 class="bp-error__title">Ugh, an error :(</h1>
+			<div class="bp-error__message" *ngIf="errorType === 'unknown'">
+				There was an unexpected error, please check the console for more information.
+			</div>
+			<div class="bp-error__message" *ngIf="errorType === 'UnknownError'">
+				<p>
+					While retrieving the application context <code>angular2-carbonldp</code> returned an <code>HTTP.Errors.UnknownError</code>.
+				</p>
+				<p>
+					This usually means that the server response didn't include the necessary
+					<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Access_control_CORS">CORS</a> headers. 90% of the time, it's because
+					the application you are trying to retrieve doesn't exist.
+				</p>
+				<p>
+					<strong>Double check that your application exists</strong>
+				</p>
+			</div>
+		</div>
+	</div>
+</background-video>
