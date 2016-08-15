@@ -17,6 +17,14 @@
 				<p>
 					<strong>Double check that your application exists</strong>
 				</p>
+				<p>
+					Other common reasons are:
+				</p>
+				<ul>
+					<li>The configured Carbon platform host is wrong (right now it's set to <code>{{ carbon.getSetting( "domain" ) }}</code>)</li>
+					<li *ngIf="carbon.getSetting( 'http.ssl' )">The platform server doesn't support https and you didn't turn it off (use <code>carbon.setSetting( 'http.ssl', false );</code>)</li>
+					<li>The platform server is down or not accessible (open <code>{{carbon.resolve( "api/" )}}</code> in the browser to test it)</li>
+				</ul>
 			</div>
 		</div>
 	</div>

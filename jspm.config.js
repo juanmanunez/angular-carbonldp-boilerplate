@@ -1,24 +1,14 @@
 SystemJS.config({
-  devConfig: {
-    "map": {
-      "plugin-typescript": "github:frankwallis/plugin-typescript@4.0.2"
-    },
-    "packages": {
-      "github:frankwallis/plugin-typescript@4.0.2": {
-        "map": {
-          "typescript": "npm:typescript@1.8.10"
-        }
-      }
+  nodeConfig: {
+    "paths": {
+      "github:": "jspm_packages/github/",
+      "npm:": "jspm_packages/npm/",
+      "app/": "src/app/"
     }
   },
   transpiler: "plugin-typescript",
   typescriptOptions: {
     "tsconfig": true
-  },
-  paths: {
-    "github:": "jspm_packages/github/",
-    "npm:": "jspm_packages/npm/",
-    "app/": "src/app/"
   },
   packages: {
     "app": {
@@ -36,8 +26,7 @@ SystemJS.config({
     }
   },
   map: {
-    "html": "github:systemjs/plugin-text@0.0.7",
-    "": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1"
+    "html": "github:systemjs/plugin-text@0.0.7"
   }
 });
 
@@ -48,18 +37,20 @@ SystemJS.config({
     "npm:*.json"
   ],
   map: {
-    "@angular/http": "npm:@angular/http@2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
-    "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-    "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
-    "@angular/core": "npm:@angular/core@2.0.0-rc.1",
-    "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
     "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
-    "bluebird": "npm:bluebird@3.4.1",
+    "@angular/forms": "npm:@angular/forms@0.3.0",
+    "@angular/router": "npm:@angular/router@3.0.0-rc.1",
+    "@angular/http": "npm:@angular/http@2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.5",
+    "@angular/common": "npm:@angular/common@2.0.0-rc.5",
+    "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.5",
+    "@angular/core": "npm:@angular/core@2.0.0-rc.5",
+    "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.5",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
+    "plugin-typescript": "github:frankwallis/plugin-typescript@5.0.9",
     "readline": "github:jspm/nodelibs-readline@0.2.0-alpha",
     "text": "github:systemjs/plugin-text@0.0.7",
-    "angular2-carbonldp": "npm:angular2-carbonldp@0.2.2-rc.2",
+    "angular2-carbonldp": "npm:angular2-carbonldp@0.3.0-rc.7",
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
     "carbonldp": "npm:carbonldp@0.36.0",
@@ -90,11 +81,10 @@ SystemJS.config({
     "tls": "github:jspm/nodelibs-tls@0.2.0-alpha",
     "tty": "github:jspm/nodelibs-tty@0.2.0-alpha",
     "tweetnacl": "npm:tweetnacl@0.13.3",
-    "typescript": "npm:typescript@1.8.10",
+    "typescript": "npm:typescript@2.0.0",
     "url": "github:jspm/nodelibs-url@0.2.0-alpha",
     "util": "github:jspm/nodelibs-util@0.2.0-alpha",
     "vm": "github:jspm/nodelibs-vm@0.2.0-alpha",
-    "youtube-player": "npm:youtube-player@3.0.4",
     "zlib": "github:jspm/nodelibs-zlib@0.2.0-alpha",
     "zone.js": "npm:zone.js@0.6.12"
   },
@@ -367,17 +357,14 @@ SystemJS.config({
         "minimalistic-assert": "npm:minimalistic-assert@1.0.0"
       }
     },
-    "npm:angular2-carbonldp@0.2.2-rc.2": {
+    "github:frankwallis/plugin-typescript@5.0.9": {
       "map": {
-        "js-cookie": "npm:js-cookie@2.1.2"
+        "typescript": "npm:typescript@2.0.0"
       }
     },
-    "npm:youtube-player@3.0.4": {
+    "npm:angular2-carbonldp@0.3.0-rc.7": {
       "map": {
-        "bluebird": "npm:bluebird@3.4.1",
-        "lodash": "npm:lodash@4.14.2",
-        "load-script": "npm:load-script@1.0.0",
-        "sister": "npm:sister@3.0.0"
+        "js-cookie": "npm:js-cookie@2.1.2"
       }
     }
   }

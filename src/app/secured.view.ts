@@ -1,10 +1,8 @@
 import {Component} from "@angular/core";
 
-import {Authenticated} from "angular2-carbonldp/decorators";
-
-@Authenticated( {redirectTo: [ "/Home" ]} )
 @Component( {
 	selector: "secured",
+	template: `secured`,
 	styles: [],
 	directives: [],
 } )

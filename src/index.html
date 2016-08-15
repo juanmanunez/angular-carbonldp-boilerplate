@@ -53,11 +53,11 @@
 		System.import( "app/boot" ).catch( function( error ) {
 			console.error( error );
 			displayError();
-		});
+		} );
 
 		function displayError() {
 			var nodesToHide = document.querySelectorAll( "app *:not( style )" );
-			for( var i = 0; i < nodesToHide.length; i++ ) {
+			for( var i = 0; i < nodesToHide.length; i ++ ) {
 				nodesToHide[ i ].style.display = "none";
 			}
 			document.querySelector( "app .loading-error" ).style.display = "block";

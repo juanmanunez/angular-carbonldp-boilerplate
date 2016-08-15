@@ -1,9 +1,11 @@
-import {Component, AfterViewInit} from "@angular/core";
-import {Router, OnActivate} from "@angular/router-deprecated";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Router } from "@angular/router";
 
-import {activeContext} from "angular2-carbonldp/boot";
+import Carbon from "carbonldp/Carbon";
 
-import {BackgroundVideoComponent} from "./background-video.component";
+import { activeContext } from "angular2-carbonldp/boot";
+
+import { BackgroundVideoComponent } from "./background-video.component";
 
 import template from "./error.view.html!text";
 import style from "./error.view.css!text";
@@ -14,11 +16,19 @@ import style from "./error.view.css!text";
 	styles: [ style ],
 	directives: [ BackgroundVideoComponent ],
 } )
-export class ErrorView implements AfterViewInit, OnActivate {
+export class ErrorView implements OnInit, AfterViewInit {
 	private error:any;
 	private errorType:string;
 
-	constructor( private router:Router ) {}
+	constructor( private router:Router, private carbon:Carbon ) {}
+
+	ngOnInit():void {
+		activeContext.promise.then( () => {
+			// The active context was successfully loaded, the user must have landed here by visiting the direct URL
+			// Let's redirect him to the home page
+			this.router.navigate( [ "/home" ] );
+		} );
+	}
 
 	ngAfterViewInit():void {
 		activeContext.promise.catch( ( error ) => {
@@ -26,14 +36,6 @@ export class ErrorView implements AfterViewInit, OnActivate {
 			this.errorType = "requestID" in this.error ? this.error.name : null;
 
 			if( this.errorType === null ) console.error( this.error );
-		} );
-	}
-
-	ngOnActivate():void {
-		activeContext.promise.then( () => {
-			// The active context was successfully loaded, the user must have landed here by visiting the direct URL
-			// Let's redirect him to the home page
-			this.router.navigate( [ "/Home" ] );
 		} );
 	}
 }

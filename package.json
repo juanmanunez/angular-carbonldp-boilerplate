@@ -11,21 +11,22 @@
   "license": "UNLICENSED",
   "private": true,
   "devDependencies": {
-    "@angular/common": "2.0.0-rc.1",
-    "@angular/compiler": "2.0.0-rc.1",
-    "@angular/core": "2.0.0-rc.1",
-    "@angular/http": "2.0.0-rc.1",
-    "@angular/platform-browser": "2.0.0-rc.1",
-    "@angular/platform-browser-dynamic": "2.0.0-rc.1",
-    "@angular/router-deprecated": "2.0.0-rc.1",
-    "angular2-carbonldp": "^0.2.0",
+    "@angular/common": "2.0.0-rc.5",
+    "@angular/compiler": "2.0.0-rc.5",
+    "@angular/core": "2.0.0-rc.5",
+    "@angular/forms": "0.3.0",
+    "@angular/http": "2.0.0-rc.5",
+    "@angular/platform-browser": "2.0.0-rc.5",
+    "@angular/platform-browser-dynamic": "2.0.0-rc.5",
+    "@angular/router": "3.0.0-rc.1",
+    "angular2-carbonldp": "^0.3.0-rc.6",
     "carbonldp": "^0.36.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-ejs": "^2.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-webserver": "^0.9.1",
-    "jspm": "^0.16.31",
+    "jspm": "^0.17.0-beta.25",
     "live-server": "^1.0.0",
     "run-sequence": "^1.2.0",
     "rxjs": "^5.0.0-beta.6",
@@ -46,23 +47,22 @@
       "lib": "src/app"
     },
     "dependencies": {
-      "angular2-carbonldp": "npm:angular2-carbonldp@0.2.2-rc.2",
-      "bluebird": "npm:bluebird@3.4.1",
+      "@angular/forms": "npm:@angular/forms@^0.3.0",
+      "angular2-carbonldp": "npm:angular2-carbonldp@0.3.0-rc.7",
       "jsonld": "npm:jsonld@^0.4.11",
+      "plugin-typescript": "github:frankwallis/plugin-typescript@^5.0.9",
       "text": "github:systemjs/plugin-text@^0.0.7",
-      "typescript": "npm:typescript@^1.8.10",
-      "youtube-player": "npm:youtube-player@^3.0.4"
+      "typescript": "npm:typescript@2.0.0"
     },
-    "devDependencies": {
-      "plugin-typescript": "github:frankwallis/plugin-typescript@^4.0.2"
-    },
+    "devDependencies": {},
     "peerDependencies": {
-      "@angular/common": "npm:@angular/common@2.0.0-rc.1",
-      "@angular/compiler": "npm:@angular/compiler@2.0.0-rc.1",
-      "@angular/core": "npm:@angular/core@2.0.0-rc.1",
-      "@angular/platform-browser": "npm:@angular/platform-browser@2.0.0-rc.1",
-      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@2.0.0-rc.1",
-      "@angular/http": "npm:@angular/http@2.0.0-rc.1",
+      "@angular/common": "npm:@angular/common@^2.0.0-rc.5",
+      "@angular/compiler": "npm:@angular/compiler@^2.0.0-rc.5",
+      "@angular/core": "npm:@angular/core@^2.0.0-rc.5",
+      "@angular/platform-browser": "npm:@angular/platform-browser@^2.0.0-rc.5",
+      "@angular/platform-browser-dynamic": "npm:@angular/platform-browser-dynamic@^2.0.0-rc.5",
+      "@angular/http": "npm:@angular/http@^2.0.0-rc.5",
+      "@angular/router": "npm:@angular/router@^3.0.0-rc.1",
       "@angular/router-deprecated": "npm:@angular/router-deprecated@2.0.0-rc.1",
       "assert": "github:jspm/nodelibs-assert@^0.2.0-alpha",
       "buffer": "github:jspm/nodelibs-buffer@^0.2.0-alpha",
@@ -102,7 +102,7 @@
       "zone.js": "npm:zone.js@^0.6.6"
     },
     "overrides": {
-      "npm:@angular/common@2.0.0-rc.1": {
+      "npm:@angular/common@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -112,7 +112,7 @@
           }
         }
       },
-      "npm:@angular/compiler@2.0.0-rc.1": {
+      "npm:@angular/compiler@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -122,7 +122,7 @@
           }
         }
       },
-      "npm:@angular/core@2.0.0-rc.1": {
+      "npm:@angular/core@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -132,7 +132,7 @@
           }
         }
       },
-      "npm:@angular/http@2.0.0-rc.1": {
+      "npm:@angular/http@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -142,7 +142,7 @@
           }
         }
       },
-      "npm:@angular/platform-browser-dynamic@2.0.0-rc.1": {
+      "npm:@angular/platform-browser-dynamic@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
@@ -152,28 +152,13 @@
           }
         }
       },
-      "npm:@angular/platform-browser@2.0.0-rc.1": {
+      "npm:@angular/platform-browser@2.0.0-rc.5": {
         "meta": {
           "src/*.js": {
             "deps": [
               "reflect-metadata",
               "zone.js"
             ]
-          }
-        }
-      },
-      "npm:bluebird@3.4.1": {
-        "map": {
-          "./js/release/bluebird.js": {
-            "browser": "./js/browser/bluebird.js"
-          }
-        },
-        "meta": {
-          "js/browser/bluebird.js": {
-            "format": "global"
-          },
-          "js/browser/bluebird.min.js": {
-            "format": "global"
           }
         }
       },
@@ -191,26 +176,9 @@
           "test.js"
         ]
       },
-      "npm:lodash@4.14.2": {
-        "map": {
-          "buffer": "@empty",
-          "process": "@empty"
-        }
-      },
       "npm:reflect-metadata@0.1.2": {
         "map": {
           "crypto": "@empty"
-        }
-      },
-      "npm:typescript@1.8.10": {
-        "browser": {},
-        "map": {
-          "buffer": "@empty",
-          "child_process": "@empty",
-          "fs": "@empty",
-          "path": "@empty",
-          "process": "@empty",
-          "readline": "@empty"
         }
       },
       "npm:jsonld@0.4.11": {
@@ -219,6 +187,17 @@
           "pkginfo": "@empty",
           "request": "@empty",
           "jsonld-request": "@empty"
+        }
+      },
+      "npm:typescript@2.0.0": {
+        "browser": {},
+        "map": {
+          "buffer": "@empty",
+          "child_process": "@empty",
+          "fs": "@empty",
+          "path": "@empty",
+          "process": "@empty",
+          "readline": "@empty"
         }
       }
     }

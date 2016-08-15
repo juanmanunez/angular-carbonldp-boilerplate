@@ -1,0 +1,4 @@
+home
+
+<button *ngIf="! authService.isAuthenticated()" (click)="login()">Login</button>
+<button *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</button>
