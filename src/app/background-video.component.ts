@@ -8,6 +8,7 @@ interface YoutubePlayerOptions {
 	events?:{
 		onReady?:( event:any )=>void,
 		onStateChange?:( event:any )=>void,
+		onError?:( event:any )=>void,
 	};
 }
 

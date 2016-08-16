@@ -1,3 +1,9 @@
+## 1.1.0 (2016-08-16)
+- Update `@angular` to RC5
+- Update to the new angular router
+- Update `angular2-carbonldp` to version 0.3.0
+- Add error page
+
 ## 1.0.3 (2016-05-27)
 - Update typings to `1.0.4`
 - Update `angular2-carbonldp`

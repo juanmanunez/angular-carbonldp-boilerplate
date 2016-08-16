@@ -1,8 +1,8 @@
 {
   "name": "angular-jspm-carbon-boilerplate",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "description": "A boilerplate to get you started creating web applications using Angular2 + JSPM + CarbonLDP",
-  "main": "index.js",
+  "main": "src/index.html",
   "scripts": {
     "start": "gulp serve",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,7 +19,7 @@
     "@angular/platform-browser": "2.0.0-rc.5",
     "@angular/platform-browser-dynamic": "2.0.0-rc.5",
     "@angular/router": "3.0.0-rc.1",
-    "angular2-carbonldp": "^0.3.0-rc.6",
+    "angular2-carbonldp": "^0.3.0",
     "carbonldp": "^0.36.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -48,7 +48,7 @@
     },
     "dependencies": {
       "@angular/forms": "npm:@angular/forms@^0.3.0",
-      "angular2-carbonldp": "npm:angular2-carbonldp@0.3.0-rc.7",
+      "angular2-carbonldp": "npm:angular2-carbonldp@0.3.0",
       "jsonld": "npm:jsonld@^0.4.11",
       "plugin-typescript": "github:frankwallis/plugin-typescript@^5.0.9",
       "text": "github:systemjs/plugin-text@^0.0.7",

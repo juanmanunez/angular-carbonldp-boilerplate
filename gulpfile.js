@@ -29,6 +29,8 @@ const config = {
 	],
 };
 
+gulp.task( "default", [ "serve" ] );
+
 gulp.task( "copy:node-dependencies", () => {
 	return gulp.src( config.nodeDependencies ).pipe( gulp.dest( "src/assets/node_modules" ) );
 } );

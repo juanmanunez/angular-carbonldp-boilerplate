@@ -1,7 +1,8 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { RequiresActiveContextGuard, AuthenticatedGuard, NotAuthenticatedGuard } from "angular2-carbonldp/guards";
+import { AuthenticatedGuard, NotAuthenticatedGuard } from "angular2-carbonldp/guards";
+import { ActiveContextResolver } from "angular2-carbonldp/resolvers";
 
 import { HomeView } from "app/home.view";
 import { LoginView } from "app/login.view";
@@ -13,9 +14,11 @@ const appRoutes:Routes = [
 	{
 		path: "home",
 		component: HomeView,
-		canActivate: [ RequiresActiveContextGuard ],
+		resolve: {
+			activeContext: ActiveContextResolver
+		},
 		data: {
-			onReject: [ "/error" ],
+			onError: [ "/error" ],
 		}
 	},
 	{
@@ -41,7 +44,7 @@ const appRoutes:Routes = [
 
 
 export const appRoutingProviders:any[] = [
-	RequiresActiveContextGuard,
+	ActiveContextResolver,
 	AuthenticatedGuard,
 	NotAuthenticatedGuard,
 ];

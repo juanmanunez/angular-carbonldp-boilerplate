@@ -6,7 +6,7 @@ import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 
 import { AppModule } from "./app.module";
 
-import { appInjector } from "angular2-carbonldp/boot";
+import { activeContext, appInjector } from "angular2-carbonldp/boot";
 
 import Carbon from "carbonldp/Carbon";
 
