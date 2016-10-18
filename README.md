@@ -1,16 +1,16 @@
 # Angular2 + JSPM + CarbonLDP Boilerplate
+
 A boilerplate to get you started creating web applications using Angular2 + JSPM + CarbonLDP
 
 ## Setup
 1. Install dependencies
-    - [node.js 5+](https://nodejs.org/en/)
+    - [node.js 6+](https://nodejs.org/en/)
     - gulp: `npm install -g gulp`
     - jspm: `npm install -g jspm@beta`
 2. cd into the project's root directory
 3. run `npm install`
-4. Open `src/app/boot.ejs.ts`, uncomment line 26 and fill it with your carbon app' slug
-5. Delete line 27 from `src/app/boot.ejs.ts`
-5. If needed configure the main carbon context in line 23 of `src/app/boot.ejs.ts`
+4. run `jspm install`
+5. Open `config/local.json`, and change the configuration to match your platform installation
 6. run `npm start`
 
 ## Next Steps
@@ -45,7 +45,6 @@ When you are ready to save your project as a new Git repository just delete the 
 - `package.json`: npm configuration file
 - `README.md`: === this
 - `tsconfig.json`: Configuration file for typescript's compiler
-- `typings.json`: typings configuration file
 
 ## TODO
 - Add e2e testing
