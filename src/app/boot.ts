@@ -1,6 +1,10 @@
 // There are files that reference this two dependencies and therefore they get included in the bundled file
 // This causes a conflict with angular2-polyfills.js, as that file also declares them
 // To avoid this, angular2-polyfills.js is no longer included in the index.html and zone and reflect are declared here instead
+import "zone.js";
+import "reflect-metadata";
+import "zone.js/dist/long-stack-trace-zone";
+
 import { NgModuleRef, enableProdMode } from "@angular/core";
 import { platformBrowserDynamic } from "@angular/platform-browser-dynamic";
 

@@ -12,7 +12,6 @@ import style from "./app.component.css!text";
 	template: template,
 	styles: [ style ],
 	encapsulation: ViewEncapsulation.None,
-	directives: []
 } )
 export class AppComponent {
 	constructor() {}

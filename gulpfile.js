@@ -34,7 +34,7 @@ gulp.task( "default", [ "serve" ] );
 gulp.task( "build", [ "clean:dist" ], ( callback ) => {
 	runSequence(
 		"clean:dist",
-		[ "compile:boot", "compile:index", "copy:assets" ],
+		[ "compile:config", "compile:index", "copy:assets" ],
 		"bundle",
 		callback
 	);

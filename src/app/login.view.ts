@@ -4,7 +4,6 @@ import { Component } from "@angular/core";
 	selector: "login",
 	template: `login`,
 	styles: [],
-	directives: [],
 } )
 export class LoginView {
 

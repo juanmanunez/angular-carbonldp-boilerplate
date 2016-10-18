@@ -4,7 +4,6 @@ import {Component} from "@angular/core";
 	selector: "secured",
 	template: `secured`,
 	styles: [],
-	directives: [],
 } )
 export class SecuredView {
 

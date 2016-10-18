@@ -7,12 +7,14 @@ import { CARBON_SERVICES_PROVIDERS } from "angular2-carbonldp/services";
 
 import { URL_BASE } from "app/config";
 
-import { routing, appRoutingProviders } from "./app.routing";
-import { AppComponent } from "./app.component";
-import { HomeView } from "./home.view";
-import { LoginView } from "./login.view";
-import { SecuredView } from "./secured.view";
-import { ErrorView } from "./error.view";
+import { routing, appRoutingProviders } from "app/app.routing";
+import { AppComponent } from "app/app.component";
+import { HomeView } from "app/home.view";
+import { LoginView } from "app/login.view";
+import { SecuredView } from "app/secured.view";
+import { ErrorView } from "app/error.view";
+
+import { BackgroundVideoComponent } from "app/background-video.component";
 
 @NgModule( {
 	imports: [
@@ -25,6 +27,8 @@ import { ErrorView } from "./error.view";
 		LoginView,
 		SecuredView,
 		ErrorView,
+
+		BackgroundVideoComponent,
 	],
 	providers: [
 		appRoutingProviders,

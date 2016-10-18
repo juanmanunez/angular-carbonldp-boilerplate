@@ -9,7 +9,6 @@ import template from "./home.view.html!text"
 	selector: "home",
 	template: template,
 	styles: [],
-	directives: [],
 } )
 export class HomeView {
 	constructor( private router:Router, @Inject( AuthService.Token ) private authService:AuthService.Class ) {}
