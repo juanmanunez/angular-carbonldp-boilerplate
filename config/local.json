@@ -6,6 +6,10 @@
     "base": "/src/"
   },
   "carbon": {
-    "domain": "carbonldp.base22.io"
+    "domain": "localhost:8083",
+    "protocol": "http",
+    "app": {
+      "slug": "your-app-slug/"
+    }
   }
 }

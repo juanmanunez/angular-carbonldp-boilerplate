@@ -1,11 +1,15 @@
 {
 	"angular": {
-		"debug": true
+		"debug": false
 	},
 	"url": {
 		"base": "/dist/site/"
 	},
 	"carbon": {
-		"domain": "carbonldp.com"
+		"domain": "localhost:8083",
+		"protocol": "http",
+		"app": {
+			"slug": "your-app-slug-here/"
+		}
 	}
 }

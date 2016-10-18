@@ -1,7 +1,7 @@
 src/app/**/*.js
 src/app/**/*.js.map
 
-src/app/boot.ts
+src/app/config.ts
 
 dist/site/
 
@@ -13,7 +13,3 @@ dist/site/
 
 # JSPM Dependencies
 **/jspm_packages/
-
-# Typings
-**/typings/globals/
-**/typings/index.d.ts

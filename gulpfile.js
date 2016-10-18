@@ -31,20 +31,32 @@ const config = {
 
 gulp.task( "default", [ "serve" ] );
 
-gulp.task( "copy:node-dependencies", () => {
-	return gulp.src( config.nodeDependencies ).pipe( gulp.dest( "src/assets/node_modules" ) );
+gulp.task( "build", [ "clean:dist" ], ( callback ) => {
+	runSequence(
+		"clean:dist",
+		[ "compile:boot", "compile:index", "copy:assets" ],
+		"bundle",
+		callback
+	);
 } );
 
-gulp.task( "copy:assets", [ "copy:node-dependencies" ], () => {
-	return gulp.src( "src/assets/**/*", {
-		base: "src/assets"
-	} ).pipe( gulp.dest( "dist/site/assets" ) );
+gulp.task( "bundle", () => {
+	let builder = new Builder();
+	return builder.buildStatic( "app/boot", "dist/site/main.sfx.js", {
+		minify: false,
+		mangle: false,
+		sourceMaps: false
+	} );
 } );
 
-gulp.task( "compile:boot", () => {
-	return gulp.src( "src/app/boot.ejs.ts" )
+gulp.task( "clean:dist", () => {
+	return del( [ "dist/site/**" ] );
+} );
+
+gulp.task( "compile:config", () => {
+	return gulp.src( "src/app/config.ejs.ts" )
 		.pipe( ejs( profileConfig ) )
-		.pipe( rename( "boot.ts" ) )
+		.pipe( rename( "config.ts" ) )
 		.pipe( gulp.dest( "src/app/" ) )
 } );
 
@@ -55,7 +67,17 @@ gulp.task( "compile:index", () => {
 		.pipe( gulp.dest( "dist/site/" ) );
 } );
 
-gulp.task( "serve", [ "copy:node-dependencies", "compile:boot" ], () => {
+gulp.task( "copy:assets", [ "copy:node-dependencies" ], () => {
+	return gulp.src( "src/assets/**/*", {
+		base: "src/assets"
+	} ).pipe( gulp.dest( "dist/site/assets" ) );
+} );
+
+gulp.task( "copy:node-dependencies", () => {
+	return gulp.src( config.nodeDependencies ).pipe( gulp.dest( "src/assets/node_modules" ) );
+} );
+
+gulp.task( "serve", [ "copy:node-dependencies", "compile:config" ], () => {
 	return gulp.src( "." )
 		.pipe( webserver( {
 			livereload: false,
@@ -75,26 +97,4 @@ gulp.task( "serve:dist", [ "build" ], () => {
 			open: "dist/site/index.html",
 			port: 8045
 		} ) );
-} );
-
-gulp.task( "clean:dist", () => {
-	return del( [ "dist/site/**" ] );
-} );
-
-gulp.task( "bundle", () => {
-	let builder = new Builder();
-	return builder.buildStatic( "app/boot", "dist/site/main.sfx.js", {
-		minify: false,
-		mangle: false,
-		sourceMaps: false
-	} );
-} );
-
-gulp.task( "build", [ "clean:dist" ], ( callback ) => {
-	runSequence(
-		"clean:dist",
-		[ "compile:boot", "compile:index", "copy:assets" ],
-		"bundle",
-		callback
-	);
 } );
