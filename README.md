@@ -38,10 +38,12 @@ When you are ready to save your project as a new Git repository just delete the 
   - `assets`: Any asset (image, json, etc.). Before adding stylesheets think if they belong to a component.
   - `index.html`: index file for the development version of the web app
 - `.gitignore`: Declaration of files to be ignored by git
+- `.npmrc`: npm configuration file
 - `CHANGELOG.md`: Informative file that states the latest changes to the project
 - `gulpfile.js`: Gulp configuration file
 - `jspm.browser.js`: jspm browser specific configuration file
 - `jspm.config.js`: Main jspm configuration file
+- `npm-shrinkwrap.json`: Configuration to lock npm dependencies
 - `package.json`: npm configuration file
 - `README.md`: === this
 - `tsconfig.json`: Configuration file for typescript's compiler
