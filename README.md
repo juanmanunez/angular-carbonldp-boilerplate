@@ -8,10 +8,10 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
     - gulp: `npm install -g gulp`
     - jspm: `npm install -g jspm@beta`
 2. cd into the project's root directory
-3. run `npm install`
-4. run `jspm install`
+3. Run `npm install`
+4. Run `jspm install`
 5. Open `config/local.json`, and change the configuration to match your platform installation
-6. run `npm start`
+6. Run `npm start`
 
 ## Next Steps
 ### Saving the project as a new Git repository
