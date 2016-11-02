@@ -21,7 +21,6 @@ let carbon:Carbon = new Carbon();
 if( CARBON_PROTOCOL.toLowerCase() === "http" ) carbon.setSetting( "http.ssl", false );
 carbon.setSetting( "domain", CARBON_DOMAIN );
 
-// Uncomment the next statement and replace the string with your app slug. After that, delete the Error below.
 if( CARBON_APP_SLUG ) activeContext.initialize( carbon, CARBON_APP_SLUG );
 
 if( ! DEBUG ) enableProdMode();
