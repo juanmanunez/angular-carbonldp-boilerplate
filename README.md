@@ -11,7 +11,9 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
 3. Run `npm install`
 4. Run `jspm install`
 5. Open `config/local.json`, and change the configuration to match your platform installation 
-7. Run `npm start`. This script will execute a set of tasks including the "compile" task that uses the EJS file `src/app/config.ejs.ts` to hold all the configuration parameters.
+6. Run `npm start` 
+
+    This script will execute a set of tasks including `gulp compile` which uses the EJS file `src/app/config.ejs.ts` to load all the configuration parameters
 
 ## Next Steps
 ### Saving the project as a new Git repository
