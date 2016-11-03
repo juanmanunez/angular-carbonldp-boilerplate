@@ -10,8 +10,8 @@ A boilerplate to get you started creating web applications using Angular2 + JSPM
 2. cd into the project's root directory
 3. Run `npm install`
 4. Run `jspm install`
-5. Open `config/local.json`, and change the configuration to match your platform installation
-6. Run `npm start`
+5. Open `config/local.json`, and change the configuration to match your platform installation 
+7. Run `npm start`. This script will execute a set of tasks including the "compile" task that uses the EJS file `src/app/config.ejs.ts` to hold all the configuration parameters.
 
 ## Next Steps
 ### Saving the project as a new Git repository
@@ -19,7 +19,7 @@ When you are ready to save your project as a new Git repository just delete the 
 
 ## Gulp Tasks
 - `build`: Build the bundled version of the web app. Can be run with `--profile prod` to indicate what configuration file to use.
-- `serve`: Serve the development version of the web app.
+- `serve`: Serve the development version of the web app. Since Angular 2 process to reload all the code can be heavy when doing development, **`live-reload` is not enabled**.
 - `serve:dist`: Serve the bundled version of the web app.
 
 ## File Structure
