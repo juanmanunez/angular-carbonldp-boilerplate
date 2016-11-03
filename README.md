@@ -21,7 +21,10 @@ When you are ready to save your project as a new Git repository just delete the 
 
 ## Gulp Tasks
 - `build`: Build the bundled version of the web app. Can be run with `--profile prod` to indicate what configuration file to use.
-- `serve`: Serve the development version of the web app. Since Angular 2 process to reload all the code can be heavy when doing development, **`live-reload` is not enabled**.
+- `serve`: Serve the development version of the web app.
+
+    **Note:** `live-reload` is not enabled by default. Loading the application is an expensive process that can take some time to finish. Making it on each change may consume too much CPU.
+
 - `serve:dist`: Serve the bundled version of the web app.
 
 ## File Structure
