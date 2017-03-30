@@ -1,14 +1,11 @@
 import { Component, AfterViewInit, HostListener, Input } from "@angular/core";
 
-import template from "./background-video.component.html!text";
-import style from "./background-video.component.css!text";
-
 interface YoutubePlayerOptions {
 	videoId:string;
 	events?:{
-		onReady?:( event:any )=>void,
-		onStateChange?:( event:any )=>void,
-		onError?:( event:any )=>void,
+		onReady?:( event:any ) => void,
+		onStateChange?:( event:any ) => void,
+		onError?:( event:any ) => void,
 	};
 }
 
@@ -26,8 +23,8 @@ interface window {
 
 @Component( {
 	selector: "background-video",
-	template: template,
-	styles: [ style ],
+	templateUrl: "./background-video.component.html",
+	styleUrls: [ "./background-video.component.css" ],
 } )
 export class BackgroundVideoComponent implements AfterViewInit {
 	@Input( "videoID" ) videoID:string;
@@ -37,8 +34,8 @@ export class BackgroundVideoComponent implements AfterViewInit {
 	screenElement:HTMLElement;
 
 	// TODO: Define youtube player settings
+	id:string = "player-" + BackgroundVideoComponent.generateUUID();
 	private player:any;
-	private id:string = "player-" + BackgroundVideoComponent.generateUUID();
 	private youtube:Youtube;
 
 	constructor() {}
@@ -137,14 +134,14 @@ export class BackgroundVideoComponent implements AfterViewInit {
 					if( "onYouTubeIframeAPIReady" in window && typeof window[ "onYouTubeIframeAPIReady" ] === "function" ) {
 						// There's a function already waiting for youtube's script to load
 						let originalEventHandler:() => any = window[ "onYouTubeIframeAPIReady" ];
-						window[ "onYouTubeIframeAPIReady" ] = function() {
+						window[ "onYouTubeIframeAPIReady" ] = function () {
 							originalEventHandler.apply( this, arguments );
 
 							if( ! ( "YT" in window ) ) reject( new Error( "Youtube script was loaded, but the 'YT' object couldn't be found in the window object" ) );
 							else resolve( window[ "YT" ] );
 						}
 					} else {
-						window[ "onYouTubeIframeAPIReady" ] = function() {
+						window[ "onYouTubeIframeAPIReady" ] = function () {
 							if( ! ( "YT" in window ) ) reject( new Error( "Youtube script was loaded, but the 'YT' object couldn't be found in the window object" ) );
 							else resolve( window[ "YT" ] );
 						}
@@ -163,20 +160,20 @@ export class BackgroundVideoComponent implements AfterViewInit {
 
 			if( ! ( "onload" in script ) ) {
 				// IE
-				script[ "onreadystatechange" ] = function() {
+				script[ "onreadystatechange" ] = function () {
 					if( this.readyState != 'complete' && this.readyState != 'loaded' ) return;
 					this[ "onreadystatechange" ] = null;
 					resolve( script );
 				}
 			}
 
-			script.onerror = function() {
+			script.onerror = function () {
 				this.onload = null;
 				this.onerror = null;
 				reject( new Error( "Failed to load Youtube script" ) );
 			};
 
-			window[ "onYouTubeIframeAPIReady" ] = function() {
+			window[ "onYouTubeIframeAPIReady" ] = function () {
 				if( ! ( "YT" in window ) ) reject( new Error( "Youtube script was loaded, but the 'YT' object couldn't be found in the window object" ) );
 				else resolve( window[ "YT" ] );
 			};

@@ -1,16 +1,9 @@
-import {Component, ViewEncapsulation} from "@angular/core";
-
-// import {HomeView} from "app/home.view";
-// import {SecuredView} from "app/secured.view"
-// import {ErrorView} from "app/error.view";
-
-import template from "./app.component.html!text";
-import style from "./app.component.css!text";
+import { Component, ViewEncapsulation } from "@angular/core";
 
 @Component( {
 	selector: "app",
-	template: template,
-	styles: [ style ],
+	templateUrl: "./app.component.html",
+	styleUrls: [ "./app.component.css" ],
 	encapsulation: ViewEncapsulation.None,
 } )
 export class AppComponent {

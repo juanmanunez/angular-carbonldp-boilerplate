@@ -1,20 +1,22 @@
 import { Component, Inject } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { AuthService } from "angular2-carbonldp/services";
-
-import template from "./home.view.html!text"
+import { AuthService } from "angular-carbonldp/services";
 
 @Component( {
 	selector: "home",
-	template: template,
+	templateUrl: "./home.view.html",
 	styles: [],
 } )
 export class HomeView {
-	constructor( private router:Router, @Inject( AuthService.Token ) private authService:AuthService.Class ) {}
+	authService:AuthService.Class;
+
+	constructor( private router:Router, @Inject( AuthService.Token ) authService:AuthService.Class ) {
+		this.authService = authService;
+	}
 
 	login():void {
-		this.authService.login( "miguel.aragon@base22.com", "miguel", true ).then( () => {
+		this.authService.login( "admin@carbonldp.com", "hello", true ).then( () => {
 			this.router.navigate( [ "/secured" ] );
 		} );
 	}

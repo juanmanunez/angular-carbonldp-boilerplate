@@ -2,10 +2,10 @@ import { NgModule } from "@angular/core";
 import { APP_BASE_HREF } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { CARBON_PROVIDERS } from "angular2-carbonldp/boot";
-import { CARBON_SERVICES_PROVIDERS } from "angular2-carbonldp/services";
+import { CARBON_PROVIDERS } from "angular-carbonldp/boot";
+import { CARBON_SERVICES_PROVIDERS } from "angular-carbonldp/services";
 
-import { URL_BASE } from "app/config";
+import { BASE_URL } from "app/config";
 
 import { routing, appRoutingProviders } from "app/app.routing";
 import { AppComponent } from "app/app.component";
@@ -34,7 +34,7 @@ import { BackgroundVideoComponent } from "app/background-video.component";
 		appRoutingProviders,
 		{
 			provide: APP_BASE_HREF,
-			useValue: URL_BASE
+			useFactory: BASE_URL
 		},
 		CARBON_PROVIDERS,
 		CARBON_SERVICES_PROVIDERS

@@ -1,8 +1,8 @@
 import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { AuthenticatedGuard, NotAuthenticatedGuard } from "angular2-carbonldp/guards";
-import { ActiveContextResolver } from "angular2-carbonldp/resolvers";
+import { AuthenticatedGuard, NotAuthenticatedGuard } from "angular-carbonldp/guards";
+import { ActiveContextResolver } from "angular-carbonldp/resolvers";
 
 import { HomeView } from "app/home.view";
 import { LoginView } from "app/login.view";

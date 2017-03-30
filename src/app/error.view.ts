@@ -1,21 +1,17 @@
 import { Component, OnInit, AfterViewInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-import Carbon from "carbonldp/Carbon";
-
-import { activeContext } from "angular2-carbonldp/boot";
-
-import template from "./error.view.html!text";
-import style from "./error.view.css!text";
+import { Class as Carbon } from "carbonldp/Carbon";
+import { activeContext } from "angular-carbonldp/boot";
 
 @Component( {
 	selector: "bp-error",
-	template: template,
-	styles: [ style ],
+	templateUrl: "./error.view.html",
+	styleUrls: [ "./error.view.css" ],
 } )
 export class ErrorView implements OnInit, AfterViewInit {
-	private error:any;
-	private errorType:string;
+	error:any;
+	errorType:string;
 
 	constructor( private router:Router, private carbon:Carbon ) {}
 
