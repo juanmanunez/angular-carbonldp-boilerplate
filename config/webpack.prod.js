@@ -6,9 +6,6 @@ const commonConfig = require( "./webpack.common.js" );
 const carbonConfig = config.carbon;
 const angularConfig = config.angular;
 
-// carbonldp's projects versions
-const workbench = require( "../package.json" );
-
 // Plugins
 const DefinePlugin = require( "webpack/lib/DefinePlugin" );
 const LoaderOptionsPlugin = require( "webpack/lib/LoaderOptionsPlugin" );
