@@ -67,7 +67,8 @@ module.exports = function( options ) {
 			// Workaround for angular/angular#11580
 			new ContextReplacementPlugin(
 				// The (\\|\/) piece accounts for path separators in *nix and Windows
-				/angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+				///angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, //<- For Angular v2.x
+				/angular(\\|\/)core(\\|\/)@angular/, // <- For Angular v4.x
 				helpers.root( "./src" ), // location of your src
 				{} // a map of your routes
 			),
