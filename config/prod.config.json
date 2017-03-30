@@ -9,7 +9,7 @@
 		"domain": "localhost:8083",
 		"protocol": "http",
 		"app": {
-			"slug": "your-app-slug-here/"
+			"slug": "trial-app/"
 		}
 	}
 }
