@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"module": "system",
+		"module": "commonjs",
 		"target": "es5",
 		"emitDecoratorMetadata": true,
 		"experimentalDecorators": true,
@@ -8,11 +8,18 @@
 		"moduleResolution": "node",
 		"baseUrl": ".",
 		"paths": {
-			"app/*": [ "src/app/*" ]
+			"app/*": [
+				"src/app/*"
+			]
 		}
 	},
 	"exclude": [
-		"node_modules",
-		"jspm_packages"
-	]
+		"dist",
+		"node_modules"
+	],
+	"angularCompilerOptions": {
+		"genDir": "compiled",
+		"skipMetadataEmit": true,
+		"typeChecking": true
+	}
 }
