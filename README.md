@@ -1,6 +1,6 @@
-# Angular + Webpack + CarbonLDP Boilerplate
+# Angular + CarbonLDP Boilerplate
 
-A boilerplate to get you started creating web applications using Angular + JSPM + CarbonLDP
+A boilerplate to get you started creating web applications using Angular + CarbonLDP
 
 ## Setup
 1. Install dependencies
