@@ -4,13 +4,14 @@ import { Routes, RouterModule } from "@angular/router";
 import { AuthenticatedGuard, NotAuthenticatedGuard } from "angular-carbonldp/guards";
 import { ActiveContextResolver } from "angular-carbonldp/resolvers";
 
-import { HomeView } from "app/home.view";
-import { LoginView } from "app/login.view";
-import { SecuredView } from "app/secured.view"
-import { ErrorView } from "app/error.view";
+import { HomeView } from "app/home/home.view";
+import { LoginView } from "app/login/login.view";
+import { SecuredView } from "app/secured/secured.view"
+import { ErrorView } from "app/errors/error/error.view";
+import { NotFoundErrorView } from "app/errors/not-found-error/not-found-error.view";
 
 const appRoutes:Routes = [
-	{ path: "", redirectTo: "/home", pathMatch: "full" },
+	{path: "", redirectTo: "/home", pathMatch: "full"},
 	{
 		path: "home",
 		component: HomeView,
@@ -39,7 +40,14 @@ const appRoutes:Routes = [
 			onError: [ "/error" ],
 		}
 	},
-	{ path: "error", component: ErrorView }
+	{
+		path: "**",
+		component: NotFoundErrorView,
+		data: {
+			title: "404 | Boilerplate",
+		}
+	},
+	{path: "error", component: ErrorView}
 ];
 
 
