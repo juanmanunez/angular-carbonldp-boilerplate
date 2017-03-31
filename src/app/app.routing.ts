@@ -11,7 +11,7 @@ import { ErrorView } from "app/errors/error/error.view";
 import { NotFoundErrorView } from "app/errors/not-found-error/not-found-error.view";
 
 const appRoutes:Routes = [
-	{path: "", redirectTo: "/home", pathMatch: "full"},
+	{ path: "", redirectTo: "/home", pathMatch: "full" },
 	{
 		path: "home",
 		component: HomeView,
@@ -40,14 +40,14 @@ const appRoutes:Routes = [
 			onError: [ "/error" ],
 		}
 	},
+	{ path: "error", component: ErrorView },
 	{
 		path: "**",
 		component: NotFoundErrorView,
 		data: {
 			title: "404 | Boilerplate",
 		}
-	},
-	{path: "error", component: ErrorView}
+	}
 ];
 
 
