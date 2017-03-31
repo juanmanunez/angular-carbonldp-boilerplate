@@ -10,15 +10,17 @@ let carbon:Carbon = new Carbon();
 // Example:
 carbon.setSetting( "domain", CARBON_DOMAIN );
 if( CARBON_PROTOCOL.toLowerCase() === "http" ) carbon.setSetting( "http.ssl", false );
-if( CARBON_APP_SLUG ) activeContext.initialize( carbon, CARBON_APP_SLUG );
 
 if( ! DEBUG ) enableProdMode();
 
-platformBrowserDynamic().bootstrapModule( AppModule ).then( ( moduleRef:NgModuleRef<AppModule> ) => {
-	// Give angular-carbonldp access to the main injector of the module
-	appInjector( moduleRef.injector );
-} ).catch( ( error ) => {
-	console.error( "Couldn't bootstrap the application" );
-	console.error( error );
-	return Promise.reject( error );
+activeContext.initialize( carbon, CARBON_APP_SLUG ).then( () => {
+	platformBrowserDynamic().bootstrapModule( AppModule ).then( ( moduleRef:NgModuleRef<AppModule> ) => {
+		// Give angular-carbonldp access to the main injector of the module
+		appInjector( moduleRef.injector );
+	} ).catch( ( error ) => {
+		console.error( "Couldn't bootstrap the application" );
+		console.error( error );
+		return Promise.reject( error );
+	} );
+
 } );
