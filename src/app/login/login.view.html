@@ -1,0 +1,25 @@
+<h2>Login View</h2>
+<hr>
+<h3>Enter your credentials!</h3>
+<form #loginForm="ngForm" role="form" (submit)="onSubmit(loginForm.value, $event)">
+	<input type="text" name="email"
+	       [(ngModel)]="login.email" tabindex="0"
+	       placeholder="email" required>
+	<input type="password" name="password"
+	       [(ngModel)]="login.password" tabindex="1"
+	       placeholder="password" required>
+	<button type="submit" (click)="onSubmit(loginForm.value, $event)" tabindex="3">
+		Login
+	</button>
+	<br>
+	<label>
+		<input type="checkbox" name="rememberMe"
+		       [(ngModel)]="login.rememberMe"
+		       checked="" tabindex="2">
+		Remember me
+	</label>
+</form>
+<br><br>
+<div *ngIf="error" class="login-error">
+	{{error.statusCode}} - {{error.name}}
+</div>

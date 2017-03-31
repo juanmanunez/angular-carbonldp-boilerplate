@@ -1,0 +1,5 @@
+<h2>Secured View</h2>
+<hr>
+<p>You're now authenticated as: {{user}}</p>
+<br>
+<button *ngIf="authService.isAuthenticated()" (click)="logout()">Logout</button>
