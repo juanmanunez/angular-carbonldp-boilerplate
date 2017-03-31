@@ -32,7 +32,7 @@
     "@angular/platform-browser": "^4.0.0",
     "@angular/platform-browser-dynamic": "^4.0.0",
     "@angular/router": "^4.0.0",
-    "angular-carbonldp": "file:///Users/base22/Carbon/angular-carbonldp/dist",
+    "angular-carbonldp": "0.8.0",
     "carbonldp": "^0.42.0",
     "core-js": "^2.4.1",
     "reflect-metadata": "0.1.10",
