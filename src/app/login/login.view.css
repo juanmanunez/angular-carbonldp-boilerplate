@@ -1,0 +1,7 @@
+.login-error {
+    border: 2px solid #FF0000;
+    background-color: #FF7167;
+    padding: 10px;
+    display: inline;
+    color: #ffffff;
+}
