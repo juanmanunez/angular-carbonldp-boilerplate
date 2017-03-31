@@ -1,0 +1,11 @@
+:host {
+    text-align: center;
+}
+
+p > .error-code {
+    font-size: 5em;
+}
+
+p > .error-description {
+
+}
