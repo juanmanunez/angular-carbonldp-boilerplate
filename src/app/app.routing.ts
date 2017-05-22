@@ -2,7 +2,7 @@ import { ModuleWithProviders } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AuthenticatedGuard, NotAuthenticatedGuard } from "angular-carbonldp/guards";
-import { ActiveContextResolver } from "angular-carbonldp/resolvers";
+import { CarbonProviderResolver } from "angular-carbonldp/resolvers";
 
 import { HomeView } from "app/home/home.view";
 import { LoginView } from "app/login/login.view";
@@ -16,7 +16,7 @@ const appRoutes:Routes = [
 		path: "home",
 		component: HomeView,
 		resolve: {
-			activeContext: ActiveContextResolver
+			carbon: CarbonProviderResolver
 		},
 		data: {
 			onError: [ "/error" ],
@@ -52,7 +52,7 @@ const appRoutes:Routes = [
 
 
 export const appRoutingProviders:any[] = [
-	ActiveContextResolver,
+	CarbonProviderResolver,
 	AuthenticatedGuard,
 	NotAuthenticatedGuard,
 ];
