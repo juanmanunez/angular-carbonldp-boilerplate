@@ -1,8 +1,7 @@
 import { Component, Inject } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { Class as Context } from "carbonldp/Context";
-import { ContextToken } from "angular-carbonldp/boot";
+import { Class as Carbon } from "carbonldp/Carbon";
 import { AuthService } from "angular-carbonldp/services";
 
 @Component( {
@@ -12,15 +11,15 @@ import { AuthService } from "angular-carbonldp/services";
 } )
 export class SecuredView {
 	router:Router;
-	context:Context;
+	carbon:Carbon;
 	authService:AuthService.Class;
 	user:string = "";
 
-	constructor( router:Router, @Inject( ContextToken ) context:Context, @Inject( AuthService.Token ) authService:AuthService.Class ) {
+	constructor( router:Router, carbon:Carbon, @Inject( AuthService.Token ) authService:AuthService.Class ) {
 		this.router = router;
-		this.context = context;
+		this.carbon = carbon;
 		this.authService = authService;
-		this.user = this.context.auth.authenticatedAgent[ "name" ] ? this.context.auth.authenticatedAgent.name : this.context.auth.authenticatedAgent.email;
+		this.user = (this.carbon.auth.authenticatedUser && this.carbon.auth.authenticatedUser.name ) ? this.carbon.auth.authenticatedUser.name : "User";
 	}
 
 	logout():void {
