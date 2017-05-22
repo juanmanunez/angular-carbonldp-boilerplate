@@ -3,13 +3,10 @@
     "debug": true
   },
   "url": {
-    "base": "/src/"
+    "base": "/"
   },
   "carbon": {
     "domain": "localhost:8083",
-    "protocol": "http",
-    "app": {
-      "slug": "trial-app/"
-    }
+    "protocol": "http"
   }
 }
