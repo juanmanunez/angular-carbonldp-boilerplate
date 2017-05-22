@@ -29,9 +29,6 @@ const METADATA = webpackMerge( commonConfig( { env: ENV } ).metadata, {
 	carbon     : {
 		protocol: carbonConfig.protocol,
 		domain  : carbonConfig.domain,
-		app     : {
-			slug: carbonConfig.app.slug
-		}
 	},
 	angular    : {
 		debug: angularConfig.debug
@@ -83,9 +80,6 @@ module.exports = function( options ) {
 					"carbon"  : {
 						"protocol": JSON.stringify( METADATA.carbon.protocol ),
 						"domain"  : JSON.stringify( METADATA.carbon.domain ),
-						"app"     : {
-							"slug": JSON.stringify( METADATA.carbon.app.slug )
-						}
 					},
 					"angular" : {
 						"debug": JSON.stringify( METADATA.angular.debug )
