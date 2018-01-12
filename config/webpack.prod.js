@@ -1,4 +1,3 @@
-const webpack = require( "webpack" );
 const webpackMerge = require( "webpack-merge" );
 const helpers = require( "./webpack.helpers" );
 const config = require( "./prod.config.json" );
@@ -12,7 +11,6 @@ const LoaderOptionsPlugin = require( "webpack/lib/LoaderOptionsPlugin" );
 const NoEmitOnErrorsPlugin = require( "webpack/lib/NoEmitOnErrorsPlugin" );
 const UglifyJsPlugin = require( "webpack/lib/optimize/UglifyJsPlugin" );
 const OccurenceOrderPlugin = require( "webpack/lib/optimize/OccurrenceOrderPlugin" );
-const CommonsChunkPlugin = require( "webpack/lib/optimize/CommonsChunkPlugin" );
 const IgnorePlugin = require( "webpack/lib/IgnorePlugin" );
 const HtmlWebpackPlugin = require( "html-webpack-plugin" );
 const AotPlugin = require( "@ngtools/webpack" ).AotPlugin;
@@ -148,7 +146,14 @@ module.exports = function( env ) {
 				tsConfigPath      : helpers.root( "tsconfig.json" ),
 				entryModule       : helpers.root( "src/app/app.module#AppModule" ),
 				mainPath          : helpers.root( "src/main.ts" ),
-				skipCodeGeneration: false
+				skipCodeGeneration: false,
+				compilerOptions   : {
+					angularCompilerOptions: {
+						genDir          : "compiled",
+						skipMetadataEmit: true,
+						typeChecking    : true
+					}
+				}
 			} ),
 
 			// Webpack inject scripts and links for us with the HtmlWebpackPlugin

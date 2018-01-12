@@ -20,10 +20,5 @@
 	"exclude": [
 		"dist",
 		"node_modules"
-	],
-	"angularCompilerOptions": {
-		"genDir": "compiled",
-		"skipMetadataEmit": true,
-		"typeChecking": true
-	}
+	]
 }
