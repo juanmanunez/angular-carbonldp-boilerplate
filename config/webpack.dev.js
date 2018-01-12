@@ -52,15 +52,6 @@ module.exports = function( options ) {
 			]
 		},
 
-		// Settings to state the name and location of resulting files
-		output: {
-			path             : helpers.root( "dist" ),
-			publicPath       : "http://" + HOST + ":" + PORT + "/",
-			filename         : "[name].js",
-			sourceMapFilename: "[file].map",
-			chunkFilename    : "[id].chunk.js"
-		},
-
 		// Plugins to bundle the app
 		plugins: [
 
@@ -102,15 +93,26 @@ module.exports = function( options ) {
 			} )
 		],
 
+		// Settings to state the name and location of resulting files
+		output: {
+			path             : helpers.root( "dist" ),	// The output directory as an absolute path
+			filename         : "[name].js",				// The name of each output bundle
+			sourceMapFilename: "[file].map",			// Only used when devtool uses a SourceMap option which writes an output file
+			chunkFilename    : "[id].chunk.js"			// Determines the name of non-entry chunk files
+
+		},
+
 		// Dev server configuration
 		devServer: {
-			port              : METADATA.port,
-			host              : METADATA.host,
-			historyApiFallback: true,
+			open              : true,			// Opens web browser
+			port              : METADATA.port,	// Port of project
+			host              : METADATA.host,	// Host of project
+			historyApiFallback: true,			// Server index.html page when 404 responses
 			watchOptions      : {
-				aggregateTimeout: 300,
-				poll            : 1000
-			}
+				aggregateTimeout: 300,			// Add a delay in milliseconds before rebuilding
+				poll            : 1000			// Check for changes every second
+			},
+			inline            : true			// A script will be inserted in index.html to take care of live reloading, and build messages will appear in the browser console
 		}
 
 	} );
