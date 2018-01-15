@@ -3,19 +3,14 @@ import { FormsModule } from "@angular/forms";
 import { APP_BASE_HREF } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { CARBON_PROVIDERS } from "angular-carbonldp/boot";
-import { CARBON_SERVICES_PROVIDERS } from "angular-carbonldp/services";
+import { BASE_URL, CARBON_DOMAIN, CARBON_PROTOCOL } from "app/config";
 
-import { BASE_URL } from "app/config";
-
-import { routing, appRoutingProviders } from "app/app.routing";
+import { routing } from "app/app.routing";
 import { AppComponent } from "app/app.component";
 import { HomeView } from "app/home/home.view";
-import { LoginView } from "app/login/login.view";
-import { SecuredView } from "app/secured/secured.view";
-import { ErrorView } from "app/errors/error/error.view";
 import { NotFoundErrorView } from "app/errors/not-found-error/not-found-error.view";
-import { BackgroundVideoComponent } from "app/errors/error/background-video.component";
+import { Class as Carbon } from "carbonldp";
+import { Class as Context } from "carbonldp/Context";
 
 @NgModule( {
 	imports: [
@@ -26,22 +21,25 @@ import { BackgroundVideoComponent } from "app/errors/error/background-video.comp
 	declarations: [
 		AppComponent,
 		HomeView,
-		LoginView,
-		SecuredView,
-		ErrorView,
 		NotFoundErrorView,
-		BackgroundVideoComponent,
 	],
 	providers: [
-		appRoutingProviders,
 		{
 			provide: APP_BASE_HREF,
 			useFactory: BASE_URL
 		},
-		CARBON_PROVIDERS,
-		CARBON_SERVICES_PROVIDERS
+		{
+			provide: Carbon,
+			useFactory: aotCarbonFactory,
+		},
 	],
 	bootstrap: [ AppComponent ],
 } )
 export class AppModule {
+}
+
+
+let carbon:Carbon = new Carbon( CARBON_DOMAIN, CARBON_PROTOCOL.toLowerCase() === "https" );
+export function aotCarbonFactory():Context {
+	return carbon;
 }
