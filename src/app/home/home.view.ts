@@ -1,6 +1,5 @@
-import { Component, Inject } from "@angular/core";
-
-import { AuthService } from "angular-carbonldp/services";
+import { Component } from "@angular/core";
+import { Class as Carbon } from "carbonldp/Carbon";
 
 @Component( {
 	selector: "home",
@@ -8,10 +7,12 @@ import { AuthService } from "angular-carbonldp/services";
 	styles: [],
 } )
 export class HomeView {
-	authService:AuthService.Class;
+	public carbon:Carbon;
 
-	constructor( @Inject( AuthService.Token ) authService:AuthService.Class ) {
-		this.authService = authService;
+
+	constructor( carbon:Carbon ) {
+		this.carbon = carbon;
+		console.log( this.carbon.version );
 	}
 }
 
