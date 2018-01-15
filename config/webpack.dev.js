@@ -1,39 +1,33 @@
-const webpack = require( "webpack" );
 const commonConfig = require( "./webpack.common.js" );
 const helpers = require( "./webpack.helpers" );
 const config = require( "./dev.config.json" );
 const carbonConfig = config.carbon;
 const angularConfig = config.angular;
+const devServerConfig = config[ "webpack-dev-server" ];
 const webpackMerge = require( "webpack-merge" );
 
 
 // Plugins
 const HtmlWebpackPlugin = require( "html-webpack-plugin" );
 const DefinePlugin = require( "webpack/lib/DefinePlugin" );
-const CommonsChunkPlugin = require( "webpack/lib/optimize/CommonsChunkPlugin" );
 const ContextReplacementPlugin = require( "webpack/lib/ContextReplacementPlugin" );
 
 
 // Webpack Constants
 const ENV = process.env.ENV = process.env.NODE_ENV = "development";
-const PROTOCOL = process.env.PROTOCOL || "http";
-const HOST = process.env.HOST || "localhost";
-const PORT = process.env.PORT || 8080;
 const METADATA = webpackMerge( commonConfig( { env: ENV } ).metadata, {
-	baseUrl    : config.url.base,
-	protocol   : PROTOCOL,
-	host       : HOST,
-	port       : PORT,
-	ENV        : ENV,
-	isDevServer: helpers.isWebpackDevServer(),
-	carbon     : {
-		protocol: carbonConfig.protocol,
-		domain  : carbonConfig.domain,
-		app     : {
-			slug: carbonConfig.app.slug
-		}
+	baseUrl         : config.url.base,
+	ENV             : ENV,
+	isDevServer     : helpers.isWebpackDevServer(),
+	webpackDevServer: {
+		host: process.env.HOST || devServerConfig.host,
+		port: process.env.PORT || devServerConfig.port
 	},
-	angular    : {
+	carbon          : {
+		protocol: carbonConfig.protocol,
+		domain  : carbonConfig.domain
+	},
+	angular         : {
 		debug: angularConfig.debug
 	}
 } );
@@ -59,7 +53,7 @@ module.exports = function( options ) {
 			new ContextReplacementPlugin(
 				// The (\\|\/) piece accounts for path separators in *nix and Windows
 				///angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/, //<- For Angular v2.x
-				/angular(\\|\/)core(\\|\/)@angular/, // <- For Angular v4.x
+				/\@angular(\\|\/)core(\\|\/)esm5/,
 				helpers.root( "./src" ), // location of your src
 				{} // a map of your routes
 			),
@@ -73,10 +67,7 @@ module.exports = function( options ) {
 					"NODE_ENV": JSON.stringify( METADATA.ENV ),
 					"carbon"  : {
 						"protocol": JSON.stringify( METADATA.carbon.protocol ),
-						"domain"  : JSON.stringify( METADATA.carbon.domain ),
-						"app"     : {
-							"slug": JSON.stringify( METADATA.carbon.app.slug )
-						}
+						"domain"  : JSON.stringify( METADATA.carbon.domain )
 					},
 					"angular" : {
 						"debug": JSON.stringify( METADATA.angular.debug )
@@ -104,15 +95,15 @@ module.exports = function( options ) {
 
 		// Dev server configuration
 		devServer: {
-			open              : true,			// Opens web browser
-			port              : METADATA.port,	// Port of project
-			host              : METADATA.host,	// Host of project
-			historyApiFallback: true,			// Server index.html page when 404 responses
+			open              : true,							// Opens web browser
+			port              : METADATA.webpackDevServer.port,	// Port of project
+			host              : METADATA.webpackDevServer.host,	// Host of project
+			historyApiFallback: true,							// Server index.html page when 404 responses
 			watchOptions      : {
-				aggregateTimeout: 300,			// Add a delay in milliseconds before rebuilding
-				poll            : 1000			// Check for changes every second
+				aggregateTimeout: 300,							// Add a delay in milliseconds before rebuilding
+				poll            : 1000							// Check for changes every second
 			},
-			inline            : true			// A script will be inserted in index.html to take care of live reloading, and build messages will appear in the browser console
+			inline            : true							// A script will be inserted in index.html to take care of live reloading, and build messages will appear in the browser console
 		}
 
 	} );
