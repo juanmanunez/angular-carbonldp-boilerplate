@@ -11,9 +11,8 @@ const LoaderOptionsPlugin = require( "webpack/lib/LoaderOptionsPlugin" );
 const NoEmitOnErrorsPlugin = require( "webpack/lib/NoEmitOnErrorsPlugin" );
 const UglifyJsPlugin = require( "webpack/lib/optimize/UglifyJsPlugin" );
 const OccurenceOrderPlugin = require( "webpack/lib/optimize/OccurrenceOrderPlugin" );
-const IgnorePlugin = require( "webpack/lib/IgnorePlugin" );
 const HtmlWebpackPlugin = require( "html-webpack-plugin" );
-const AotPlugin = require( "@ngtools/webpack" ).AotPlugin;
+const AngularCompilerPlugin = require( "@ngtools/webpack" ).AngularCompilerPlugin;
 
 
 // Webpack Constants
@@ -30,10 +29,7 @@ const METADATA = webpackMerge( commonConfig( { env: ENV } ).metadata, {
 	isDevServer: helpers.isWebpackDevServer(),
 	carbon     : {
 		protocol: carbonConfig.protocol,
-		domain  : carbonConfig.domain,
-		app     : {
-			slug: carbonConfig.app.slug
-		}
+		domain  : carbonConfig.domain
 	},
 	angular    : {
 		debug: angularConfig.debug
@@ -81,10 +77,7 @@ module.exports = function( env ) {
 					"NODE_ENV": JSON.stringify( METADATA.ENV ),
 					"carbon"  : {
 						"protocol": JSON.stringify( METADATA.carbon.protocol ),
-						"domain"  : JSON.stringify( METADATA.carbon.domain ),
-						"app"     : {
-							"slug": JSON.stringify( METADATA.carbon.app.slug )
-						}
+						"domain"  : JSON.stringify( METADATA.carbon.domain )
 					},
 					"angular" : {
 						"debug": JSON.stringify( METADATA.angular.debug )
@@ -138,22 +131,15 @@ module.exports = function( env ) {
 				}
 			} ),
 
-			// Ignore node imports
-			new IgnorePlugin( /^(http|https|url|file-type)$/, /carbonldp/ ),
-
 			// Plugin to AoT compile the app
-			new AotPlugin( {
-				tsConfigPath      : helpers.root( "tsconfig.json" ),
-				entryModule       : helpers.root( "src/app/app.module#AppModule" ),
-				mainPath          : helpers.root( "src/main.ts" ),
-				skipCodeGeneration: false,
-				compilerOptions   : {
-					angularCompilerOptions: {
-						genDir          : "compiled",
-						skipMetadataEmit: true,
-						typeChecking    : true
-					}
-				}
+			new AngularCompilerPlugin( {
+				tsConfigPath    : helpers.root( "tsconfig.json" ),
+				entryModule     : helpers.root( "src/app/app.module#AppModule" ),
+				mainPath        : helpers.root( "src/main.ts" ),
+				sourceMap       : true,
+				genDir          : "compiled",
+				skipMetadataEmit: true,
+				typeChecking    : true
 			} ),
 
 			// Webpack inject scripts and links for us with the HtmlWebpackPlugin
