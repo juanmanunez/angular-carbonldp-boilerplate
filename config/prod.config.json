@@ -7,9 +7,6 @@
 	},
 	"carbon": {
 		"domain": "localhost:8083",
-		"protocol": "http",
-		"app": {
-			"slug": "trial-app/"
-		}
+		"protocol": "http"
 	}
 }

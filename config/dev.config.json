@@ -1,15 +1,16 @@
 {
-  "angular": {
-    "debug": true
-  },
-  "url": {
-    "base": "/src/"
-  },
-  "carbon": {
-    "domain": "localhost:8083",
-    "protocol": "http",
-    "app": {
-      "slug": "trial-app/"
-    }
-  }
+	"angular": {
+		"debug": true
+	},
+	"url": {
+		"base": "/"
+	},
+	"webpack-dev-server": {
+		"host": "localhost",
+		"port": 8080
+	},
+	"carbon": {
+		"domain": "localhost:8083",
+		"protocol": "http"
+	}
 }
